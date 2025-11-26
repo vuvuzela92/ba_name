@@ -1,0 +1,15 @@
+[project]
+name = "art_analyze"
+version = "0.1.0"
+description = "Проект для анализа статистики по артикулам на маркетплейсах"
+authors = [
+    { name = "Константин" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
