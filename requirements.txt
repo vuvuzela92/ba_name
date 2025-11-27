@@ -5,3 +5,4 @@ requests
 dotenv
 numpy
 gspread
+gspread_dataframe
