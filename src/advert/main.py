@@ -5,7 +5,7 @@ import numpy as np
 
 
 if __name__ == "__main__":
-    days_count = 30
+    days_count = 1
     adv_data = asyncio.run(get_all_adv_data(days_count))
     adv_processed_data = processed_adv_data(adv_data)
     df = pd.DataFrame(adv_processed_data)
