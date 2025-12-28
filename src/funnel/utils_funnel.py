@@ -331,9 +331,9 @@ def send_df_to_google(df, sheet):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-async def main_funnel_daily(days_count=1):
+async def main_funnel_daily(days_count=30):
     df = await process_funnel_daily(days_count=days_count)
     df.drop_duplicates
-    table = safe_open_spreadsheet("victoria_project")
+    table = safe_open_spreadsheet("Наш Файл УУ ( Акселерация)")
     sheet = table.worksheet("БД_Воронка")
     send_df_to_google(df, sheet)

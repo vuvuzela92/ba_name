@@ -198,21 +198,29 @@ def get_adv_spend(account, date_from, date_to, headers):
     max_retries = 5
     while not task_completed and retry_count < max_retries:
             res = requests.get(url, headers=headers, params=params)
-            try:
-                res.raise_for_status()  # Проверка на ошибки HTTP
-                results = pd.DataFrame(res.json())  
-                results['account'] = account
-                results['updTime'] = pd.to_datetime(results['updTime'], format='ISO8601').dt.date.astype(str)
-                results['updTime'] = results['updTime'].loc[results['updTime'] == date_from]
-                task_completed = True
-            except requests.exceptions.RequestException as e:
-                print(f"Error for account {account}: {e}")
+            if res.status_code == 200:
+                try:
+                    res.raise_for_status()  # Проверка на ошибки HTTP
+                    results = pd.DataFrame(res.json())  
+                    results['account'] = account
+                    try:
+                        results['updTime'] = pd.to_datetime(results['updTime'], format='ISO8601').dt.date.astype(str)
+                        results['updTime'] = results['updTime'].loc[results['updTime'] == date_from]
+                    except KeyError:
+                        print(f'За {date_from} не удалось получить данные')
+                    task_completed = True
+                except requests.exceptions.RequestException as e:
+                    print(f"Error for account {account}: {e}")
+                    retry_count += 1
+                    sleep(20)
+                if task_completed:           
+                    return results
+                else:
+                    print(f"Превывышено максимальное количество запросов для {account}.")
+            elif res.status_code == 429:
+                print(f"Лимит запросов за {date_from}")
                 retry_count += 1
-                sleep(20)
-    if task_completed:           
-        return results
-    else:
-        print(f"Превывышено максимальное количество запросов для {account}.")
+                sleep(1)
 
 def processed_adv_spend(days_count=1):
     adv_spend_list = []
@@ -226,8 +234,10 @@ def processed_adv_spend(days_count=1):
             adv_spend_list.append(get_adv_spend(account, date_from, date_to, headers))
         
     adv_spend_df = pd.concat(adv_spend_list, ignore_index=True, axis='rows')
-
-    adv_spend_df['updTime'] = pd.to_datetime(adv_spend_df['updTime'], format='ISO8601').dt.date.astype(str)
+    try:
+        adv_spend_df['updTime'] = pd.to_datetime(adv_spend_df['updTime'], format='ISO8601').dt.date.astype(str)
+    except KeyError:
+        adv_spend_df['updTime'] = yesterday
     adv_spend_df['sku'] = adv_spend_df['campName'].apply(lambda x : x[:9])
     adv_spend_df = adv_spend_df[['updTime', 'campName', 'paymentType', 'updNum', 'updSum', 'advertId', 'advertType', 'advertStatus', 'sku', 'account']]
     return adv_spend_df
@@ -235,6 +245,6 @@ def processed_adv_spend(days_count=1):
 def main_adv_spend(days_count=1):
     df = processed_adv_spend(days_count)
     df['updTime'] = df['updTime'].astype(str)
-    table = safe_open_spreadsheet('victoria_project')
+    table = safe_open_spreadsheet('Наш Файл УУ ( Акселерация)')
     sheet = table.worksheet('БД_Рекламные_затраты')
     send_df_to_google(df, sheet)

@@ -5,7 +5,7 @@ import numpy as np
 
 
 if __name__ == "__main__":
-    days_count = 1
+    days_count = 30
     adv_data = asyncio.run(get_all_adv_data(days_count))
     adv_processed_data = processed_adv_data(adv_data)
     df = pd.DataFrame(adv_processed_data)
@@ -18,6 +18,6 @@ if __name__ == "__main__":
     df_short = df_short.fillna(0)
     df_short.loc[:, 'date'] = df_short['date'].astype(str)
     df_short.drop_duplicates
-    table = safe_open_spreadsheet("victoria_project")
+    table = safe_open_spreadsheet("Наш Файл УУ ( Акселерация)")
     sheet = table.worksheet("БД_Рекламная_статистика")
     send_df_to_google(df_short, sheet)
