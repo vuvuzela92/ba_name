@@ -202,7 +202,7 @@ async def process_funnel_daily(days_count=1):
         first_date, last_date = found_day, found_day
         date_ranges.append((first_date, last_date))
     
-    print(f"📅 Запрашиваем данные за {len(date_ranges)} дней...")
+    print(f"📅 Запрашиваем данные за {len(days_count)} дней...")
 
     batches = batchify(date_ranges, bath_size)
 
