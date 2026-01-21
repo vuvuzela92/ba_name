@@ -14,28 +14,26 @@ import pandas as pd
 load_dotenv()
 
 def load_api_tokens():
-    # Проверяем наличие файла tokens.json во всех директориях проекта
-    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # Получаем путь к текущему файлу (utils_advert.py или main.py)
+    current_file = os.path.abspath(__file__)
+    
+    # Поднимаемся до корня проекта: 
+    # .../ba_name/src/advert/ → .../ba_name/
+    project_root = os.path.dirname(os.path.dirname(os.path.dirname(current_file)))
+    
+    # Формируем путь к tokens.json в папке creds
+    tokens_path = os.path.join(project_root, 'creds', 'tokens.json')
+    
+    if not os.path.isfile(tokens_path):
+        print(f"Файл tokens.json не найден по пути: {tokens_path}")
+        return None
 
-    while True:
-        tokens_path = os.path.join(current_dir, 'tokens.json')
-        if os.path.isfile(tokens_path):
-            try:
-                with open(tokens_path, 'r', encoding='utf-8') as f:
-                    return json.load(f)
-            except json.JSONDecodeError:
-                print(f"Ошибка декодирования JSON в файле: {tokens_path}")
-                return None
-
-        # Поднимаемся на уровень выше
-        parent_dir = os.path.dirname(current_dir)
-        if parent_dir == current_dir:
-            # Достигли корня диска
-            break
-        current_dir = parent_dir
-
-    print("Файл tokens.json не найден ни в одной из директорий")
-    return None
+    try:
+        with open(tokens_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        print(f"Ошибка декодирования JSON в файле: {tokens_path}")
+        return None
 
 def safe_open_spreadsheet(title, retries=5, delay=5):
     """
@@ -202,7 +200,7 @@ async def process_funnel_daily(days_count=1):
         first_date, last_date = found_day, found_day
         date_ranges.append((first_date, last_date))
     
-    print(f"📅 Запрашиваем данные за {len(days_count)} дней...")
+    print(f"📅 Запрашиваем данные за {days_count} дней...")
 
     batches = batchify(date_ranges, bath_size)
 
