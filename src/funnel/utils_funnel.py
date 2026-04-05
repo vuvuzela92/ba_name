@@ -39,7 +39,10 @@ def safe_open_spreadsheet(title, retries=5, delay=5):
     """
     Пытается открыть таблицу с повторными попытками при APIError 503.
     """
-    gc = gspread.service_account(filename=os.path.join(os.path.dirname(__file__), 'creds.json'))
+    # Поднимаемся на 2 уровня: funnel → src → ba_name
+    project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    creds_path = os.path.join(project_root, 'creds', 'creds.json')
+    gc = gspread.service_account(filename=creds_path)
     
     for attempt in range(1, retries + 1):
         logging.info(f"[Попытка {attempt}] открыть доступ к таблице '{title}'")
@@ -332,6 +335,7 @@ def send_df_to_google(df, sheet):
 async def main_funnel_daily(days_count=30):
     df = await process_funnel_daily(days_count=days_count)
     df.drop_duplicates
+    df = df.fillna(0)
     table = safe_open_spreadsheet("Наш Файл УУ ( Акселерация)")
     sheet = table.worksheet("БД_Воронка")
     send_df_to_google(df, sheet)
