@@ -3,7 +3,8 @@ import inspect
 from typing import Callable, Dict, Any
 
 # --- ИМПОРТЫ ЗАДАЧ ---
-from src.run import fin_rep_weekly, get_current_prices
+from src.price.run import get_current_prices
+from src.fin_report.run import fin_rep_weekly
 
 
 def smart_run(func: Callable):
