@@ -193,3 +193,8 @@ def get_current_prices():
         print(f"Не найден лист {table_sheet} в таблице {google_table}")
     except RuntimeError as e:
         print(f"Ошибка подключения: {e}")
+
+
+
+
+        
