@@ -1,62 +1,19 @@
-from src.core.wb_client import WildberriesClient
-from src.core.utils_general import batchify, load_api_tokens
-
-# from wb_client import WildberriesClient
-# from advert_stat import WbAdverStat
-# from utils_general import batchify, load_api_tokens
-
-from datetime import datetime, timedelta
-import asyncio
+# Импорт внутренних модулей
+from src.core.base_scraper import WBScraper
+from src.core.utils_general import load_api_tokens, batchify
+from src.advert.advert_stat import WbAdverStat
+# Импорт внешних библиотек
 import aiohttp
-import logging
+import asyncio
+from datetime import datetime, timedelta
 
-logger = logging.getLogger(__name__)
-
-class WBScraper():
-    """
-    Оркестратор сбора данных с Wildberries.
-    Управляет датами, аккаунтами, параллелизмом.
-    """
-
-    def __init__(self, max_concurrent: int = 16):
-        """
-        Args:
-            tokens: Словарь {account_name: api_key}
-            max_concurrent: Максимум одновременных запросов (semaphore)
-        """
-        self.max_concurrent = max_concurrent
-        self.semaphore = asyncio.Semaphore(max_concurrent)
-
-    async def _fetch_funnel(self, days_count=1):
-        tokens = load_api_tokens()
-        dates = [(datetime.now() - timedelta(days=day)).strftime('%Y-%m-%d') 
-                for day in range(days_count)]
-        
-        async with aiohttp.ClientSession() as session:
-            # 1. Создаём всех клиентов
-            clients = {
-                name: WildberriesClient(token, session, name)
-                for name, token in tokens.items()
-            }
-            
-            # 2. Создаём все задачи с контекстом
-            tasks = []    
-            for name, client in clients.items():
-                for date in dates:
-                    print(f"Начался сбор данных за {date} по ЛК {name}")
-                    task = client.get_funnel(start_date=date, end_date=date)
-                    print(f"Собраны данные за {date} по ЛК {name}")
-                    tasks.append(task)
-            
-            # 3. Запускаем ВСЕ задачи одновременно с gather()
-            results = await asyncio.gather(*tasks, return_exceptions=True)
-            return results
-        
+class ScraperAdvert(WBScraper):
+    """Класс для получения рекламных данных со всех доступных кабинетов ВБ"""
+    def __init__(self, max_concurrent = 16):
+        super().__init__(max_concurrent)
 
     async def _fetch_adv_camp_list(self):
         """ Создает и получает данные по спискам по всем ЛК асинхронно"""
-        # Используем ленивый импорт, чтобы не вызывать циклических зависимостей
-        from src.advert.advert_service import WbAdverStat
         tokens = load_api_tokens()
         # Определяем перечень статусов РК, по которым будем запращивать данные
         campaign_statuses = 9, 11
@@ -85,8 +42,6 @@ class WBScraper():
             return clean_results
 
     async def _fetch_advert_stat(self, adverts = None, date_from: str = None, date_to: str = None)->list:
-        # Используем ленивый импорт, чтобы не вызывать циклических зависимостей
-        from src.advert.advert_service import WbAdverStat
         """ Функция для сбора статистической информации по общей статистике по всем ЛК.
         adverts: кортеж из словарей с ключом в качестве названия ЛК и списком рекламных кампаний по типу Единая и Ручная."""
         if date_from is None:
@@ -123,9 +78,6 @@ class WBScraper():
         date_from: дата формата "2026-05-10", задает начала диапазона сбора данных
         date_to: дата формата "2026-05-10", задает конец диапазона сбора данных 
         """
-        # Используем ленивый импорт, чтобы не вызывать циклических зависимостей
-        from src.advert.advert_service import WbAdverStat
-
         if date_from is None:
             date_from = date_to = (datetime.now()-timedelta(days=1)).strftime('%Y-%m-%d') 
         async with aiohttp.ClientSession() as session:
