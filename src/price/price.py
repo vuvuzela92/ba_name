@@ -2,8 +2,23 @@ from src.core.wb_client import WildberriesClient
 import pandas as pd
 
 class PriceWB(WildberriesClient):
-    def __init__(self, api_key, session, account, timeout=30):
-        super().__init__(api_key, session, account, timeout)
+    def __init__(
+        self,
+        api_key,
+        session,
+        account,
+        timeout=30,
+        retry_policy=None,
+        limiter=None,
+    ):
+        super().__init__(
+            api_key,
+            session,
+            account,
+            timeout,
+            retry_policy=retry_policy,
+            limiter=limiter,
+        )
 
     async def get_price(self, nm_list: list):
         """Функция для получения информации о цене товара"""
