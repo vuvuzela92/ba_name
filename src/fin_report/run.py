@@ -1,4 +1,4 @@
-# импорт внутренних модулей
+﻿# импорт внутренних модулей
 # Для работы с фин отчетами
 from src.fin_report.finance_report_service import fetch_fin_reps_weekly
 from src.fin_report.finance_report_processor import FinRepProcessor
@@ -12,8 +12,11 @@ from datetime import datetime, timedelta
 
 # Документы и бухгалтерия
 def fin_rep_weekly(count_weeks=2):
+    return asyncio.run(fin_rep_weekly_async(count_weeks))
+
+async def fin_rep_weekly_async(count_weeks=2):
     """ Функция для получения обработанных результатов ежедневного финаносового отчете"""   
-    data = asyncio.run(fetch_fin_reps_weekly(count_weeks))
+    data = await fetch_fin_reps_weekly(count_weeks)
     df = FinRepProcessor()._process_fin_rep(data)
     # Переименуем на русский для удобной работе в гугл-таблице
     df_rus = df.copy()
@@ -165,3 +168,5 @@ def fin_rep_weekly(count_weeks=2):
         print(f"Не найден лист {table_sheet} в таблице {google_table}")
     except RuntimeError as e:
         print(f"Ошибка подключения: {e}")   
+
+

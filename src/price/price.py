@@ -1,4 +1,4 @@
-from src.core.wb_client import WildberriesClient
+﻿from src.core.wb_client import WildberriesClient
 import pandas as pd
 
 class PriceWB(WildberriesClient):
@@ -10,6 +10,7 @@ class PriceWB(WildberriesClient):
         timeout=30,
         retry_policy=None,
         limiter=None,
+        metrics=None,
     ):
         super().__init__(
             api_key,
@@ -18,6 +19,7 @@ class PriceWB(WildberriesClient):
             timeout,
             retry_policy=retry_policy,
             limiter=limiter,
+            metrics=metrics,
         )
 
     async def get_price(self, nm_list: list):
@@ -44,3 +46,5 @@ class PriceWB(WildberriesClient):
 
 
     
+
+

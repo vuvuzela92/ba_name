@@ -1,10 +1,27 @@
-from src.core.wb_client import WildberriesClient
+﻿from src.core.wb_client import WildberriesClient
 from datetime import datetime, timedelta
 import asyncio
 
 class FinRep(WildberriesClient):
-    def __init__(self, api_key, session, account, timeout=30):
-        super().__init__(api_key, session, account, timeout)
+    def __init__(
+        self,
+        api_key,
+        session,
+        account,
+        timeout=30,
+        retry_policy=None,
+        limiter=None,
+        metrics=None,
+    ):
+        super().__init__(
+            api_key,
+            session,
+            account,
+            timeout,
+            retry_policy=retry_policy,
+            limiter=limiter,
+            metrics=metrics,
+        )
 
     async def get_fin_report_daily(self, date_from: datetime = None, date_to: datetime = None):
         """ Получения данных ежедневного финансового отчета"""
@@ -67,3 +84,5 @@ class FinRep(WildberriesClient):
                 await asyncio.sleep(60)
                     
         return all_data
+
+

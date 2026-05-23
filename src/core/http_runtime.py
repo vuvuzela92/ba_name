@@ -1,4 +1,4 @@
-import asyncio
+﻿import asyncio
 import random
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
@@ -26,6 +26,47 @@ class HttpRuntimeConfig:
     request_timeout_sec: float = 30.0
     global_concurrency_limit: int = 16
     connector_limit: int = 100
+
+
+@dataclass(slots=True)
+class RuntimeMetrics:
+    requests_total: int = 0
+    requests_failed: int = 0
+    retries_total: int = 0
+    status_429_total: int = 0
+    exceptions_total: int = 0
+    duration_total_ms: float = 0.0
+    avg_duration_ms: float = 0.0
+    max_duration_ms: float = 0.0
+
+    def observe_request(self, duration_ms: float, status_code: int | None = None, success: bool = True) -> None:
+        self.requests_total += 1
+        if not success:
+            self.requests_failed += 1
+        if status_code == 429:
+            self.status_429_total += 1
+        self.duration_total_ms += duration_ms
+        if duration_ms > self.max_duration_ms:
+            self.max_duration_ms = duration_ms
+        self.avg_duration_ms = self.duration_total_ms / max(1, self.requests_total)
+
+    def observe_retry(self) -> None:
+        self.retries_total += 1
+
+    def observe_exception(self) -> None:
+        self.exceptions_total += 1
+
+    def snapshot(self) -> dict:
+        return {
+            "requests_total": self.requests_total,
+            "requests_failed": self.requests_failed,
+            "retries_total": self.retries_total,
+            "status_429_total": self.status_429_total,
+            "exceptions_total": self.exceptions_total,
+            "duration_total_ms": round(self.duration_total_ms, 2),
+            "avg_duration_ms": round(self.avg_duration_ms, 2),
+            "max_duration_ms": round(self.max_duration_ms, 2),
+        }
 
 
 class ConcurrencyLimiter:

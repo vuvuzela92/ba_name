@@ -1,4 +1,4 @@
-from src.advert.processor import AdvertProcessor
+﻿from src.advert.processor import AdvertProcessor
 from src.advert.advert_service import ScraperAdvert
 from src.core.my_gspread import GoogleTabs
 from src.core.config import google_tabs
@@ -32,6 +32,8 @@ async def advert_stat(date_from: str = None, date_to: str = None):
     # Вычисляю cpm
     df['cpm'] = df['sum_spend'] / df['views'].replace(0, np.nan) * 1000
     df_gs = df[['account', 'advert_id', 'nm_id', 'date', 'atbs', 'canceled', 'clicks', 'cpc', 'cr', 'ctr', 'orders', 'shks', 'sum_spend', 'sum_price', 'views', 'cpm', 'updated_at']]
+    # Замена NaN/inf перед запись в гугл таблицу
+    df_gs = df_gs.replace([np.inf, -np.inf], np.nan).fillna("")
     # Создаем соединение с гугл-таблицей
     google_table = google_tabs.get("ba_name").get("title")
     table_sheet = google_tabs.get("ba_name").get("advert_stat")
@@ -49,3 +51,5 @@ async def advert_stat(date_from: str = None, date_to: str = None):
         print(f"Не найден лист {table_sheet} в таблице {google_table}")
     except RuntimeError as e:
         print(f"Ошибка подключения: {e}")
+
+

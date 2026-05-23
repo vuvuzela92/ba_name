@@ -22,7 +22,7 @@ def _replace_sheet_data(df, sheet) -> None:
     """Полностью обновляет диапазон выгрузки (без append) для текущих цен."""
     df_to_write = df.fillna("")
     last_col = _column_to_letter(len(df_to_write.columns))
-    clear_range = f"A2:{last_col}{sheet.row_count}"
+    clear_range = f"A1:{last_col}{sheet.row_count}"
 
     print(f"Очищаем диапазон: {clear_range}")
     sheet.batch_clear([clear_range])
@@ -33,8 +33,12 @@ def _replace_sheet_data(df, sheet) -> None:
 
 
 def get_current_prices():
+    return asyncio.run(get_current_prices_async())
+
+
+async def get_current_prices_async():
     nm_ids = get_nm_ids()
-    data = asyncio.run(fetch_get_price(nm_ids))
+    data = await fetch_get_price(nm_ids)
     df = process_prices(data)
 
     google_table = google_tabs.get("ba_name").get("title")

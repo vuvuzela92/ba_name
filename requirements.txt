@@ -1,4 +1,4 @@
-asyncio
+﻿asyncio
 aiohttp
 pandas
 requests
@@ -6,3 +6,4 @@ dotenv
 numpy
 gspread
 gspread_dataframe
+loguru
