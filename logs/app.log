@@ -1,0 +1,45 @@
+2026-05-24 00:26:25.813 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | 💵 Запуск обновления данных по текущим ценам
+2026-05-24 00:26:29.198 | ERROR    | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Task failed: PriceWB.__init__() got an unexpected keyword argument 'metrics'
+Traceback (most recent call last):
+
+  File "D:\Pytnon_scripts\ba_name\main.py", line 51, in <module>
+    main()
+    └ <function main at 0x00000290FC9CF060>
+
+> File "D:\Pytnon_scripts\ba_name\main.py", line 39, in main
+    asyncio.run(original_func(**kwargs))
+    │       │   │               └ {}
+    │       │   └ <function get_current_prices_async at 0x00000290B2B74D60>
+    │       └ <function run at 0x00000290FE898E00>
+    └ <module 'asyncio' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object get_current_prices_async at 0x00000290B2B3D7A0>
+           │      └ <function Runner.run at 0x00000290FE9432E0>
+           └ <asyncio.runners.Runner object at 0x00000290B2AAF4D0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │                        └ <Task finished name='Task-1' coro=<get_current_prices_async() done, defined at D:\Pytnon_scripts\ba_name\src\price\run.py:39>...
+           │    └ None
+           └ <asyncio.runners.Runner object at 0x00000290B2AAF4D0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           │      └ <method 'result' of '_asyncio.Task' objects>
+           └ <Task finished name='Task-1' coro=<get_current_prices_async() done, defined at D:\Pytnon_scripts\ba_name\src\price\run.py:39>...
+
+  File "D:\Pytnon_scripts\ba_name\src\price\run.py", line 41, in get_current_prices_async
+    data = await fetch_get_price(nm_ids)
+                 │               └ [398400810, 398400809, 159221368, 170598570, 159222686, 170602860, 242981834, 222683424, 158994099, 224050073, 224050074, 222...
+                 └ <function fetch_get_price at 0x00000290FEFD04A0>
+
+  File "D:\Pytnon_scripts\ba_name\src\price\price_server.py", line 25, in fetch_get_price
+    client = PriceWB(
+             └ <class 'src.price.price.PriceWB'>
+
+TypeError: PriceWB.__init__() got an unexpected keyword argument 'metrics'
+2026-05-24 00:28:29.097 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | 💵 Запуск обновления данных по текущим ценам
+2026-05-24 00:28:32.632 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Starting price collection for 1 accounts
+2026-05-24 00:28:33.595 | INFO     | task=http_request endpoint=/api/v2/list/goods/filter account=Buenos Animales status=200 attempt=1 retries=0 retry_sleep=- duration_ms=962.68 failed=- succeeded=- | HTTP request succeeded
+2026-05-24 00:28:33.596 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=0 succeeded=1 | Price collection finished. rows=23 metrics={'requests_total': 1, 'requests_failed': 0, 'retries_total': 0, 'status_429_total': 0, 'exceptions_total': 0, 'duration_total_ms': 962.68, 'avg_duration_ms': 962.68, 'max_duration_ms': 962.68}
+2026-05-24 00:28:37.770 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Task finished successfully
