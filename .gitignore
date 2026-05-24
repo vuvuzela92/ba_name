@@ -6,3 +6,8 @@ __pycache__/
 .vscode/
 creds.json
 tokens.json
+logs/
+*.log
+creds/creds.json
+creds/tokens.json
+creds/*.json

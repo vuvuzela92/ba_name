@@ -51,5 +51,3 @@ async def advert_stat(date_from: str = None, date_to: str = None):
         print(f"Не найден лист {table_sheet} в таблице {google_table}")
     except RuntimeError as e:
         print(f"Ошибка подключения: {e}")
-
-

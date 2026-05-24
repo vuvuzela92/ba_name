@@ -7,3 +7,4 @@ numpy
 gspread
 gspread_dataframe
 loguru
+aiogram>=3,<4

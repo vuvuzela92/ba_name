@@ -43,3 +43,1356 @@ TypeError: PriceWB.__init__() got an unexpected keyword argument 'metrics'
 2026-05-24 00:28:33.595 | INFO     | task=http_request endpoint=/api/v2/list/goods/filter account=Buenos Animales status=200 attempt=1 retries=0 retry_sleep=- duration_ms=962.68 failed=- succeeded=- | HTTP request succeeded
 2026-05-24 00:28:33.596 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=0 succeeded=1 | Price collection finished. rows=23 metrics={'requests_total': 1, 'requests_failed': 0, 'retries_total': 0, 'status_429_total': 0, 'exceptions_total': 0, 'duration_total_ms': 962.68, 'avg_duration_ms': 962.68, 'max_duration_ms': 962.68}
 2026-05-24 00:28:37.770 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Task finished successfully
+2026-05-24 11:28:12.345 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | 💵 Запуск обновления данных по текущим ценам
+2026-05-24 11:28:17.232 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Starting price collection for 1 accounts
+2026-05-24 11:28:17.776 | INFO     | task=http_request endpoint=/api/v2/list/goods/filter account=Buenos Animales status=200 attempt=1 retries=0 retry_sleep=- duration_ms=543.76 failed=- succeeded=- | HTTP request succeeded
+2026-05-24 11:28:17.777 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=0 succeeded=1 | Price collection finished. rows=23 metrics={'requests_total': 1, 'requests_failed': 0, 'retries_total': 0, 'status_429_total': 0, 'exceptions_total': 0, 'duration_total_ms': 543.76, 'avg_duration_ms': 543.76, 'max_duration_ms': 543.76}
+2026-05-24 11:28:22.774 | INFO     | task=get_current_prices endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Task finished successfully
+2026-05-24 13:24:41.183 | INFO     | task=bot_init endpoint=dispatcher account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Handlers registered
+2026-05-24 13:24:41.444 | INFO     | task=bot_run endpoint=polling account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Bot polling started
+2026-05-24 13:24:46.808 | INFO     | task=prices endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Incoming command text='Текущие цены'
+2026-05-24 13:24:51.621 | INFO     | task=analytics_read endpoint=current_price account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sheet loaded rows=23 cols=5 header_row=1
+2026-05-24 13:24:51.628 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sending message total_len=832 chunks=1
+2026-05-24 13:24:52.094 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Chunk sent idx=1 size=832
+2026-05-24 13:24:52.094 | INFO     | task=prices endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Command finished duration_ms=5286.21
+2026-05-24 13:29:58.331 | INFO     | task=bot_init endpoint=dispatcher account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Handlers registered
+2026-05-24 13:29:59.774 | INFO     | task=bot_run endpoint=polling account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Bot polling started
+2026-05-24 13:30:09.402 | INFO     | task=prices endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Incoming command text='Текущие цены'
+2026-05-24 13:30:13.821 | INFO     | task=analytics_read endpoint=current_price account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sheet loaded rows=23 cols=5 header_row=1
+2026-05-24 13:30:13.827 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sending message total_len=843 chunks=1
+2026-05-24 13:30:14.318 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Chunk sent idx=1 size=843
+2026-05-24 13:30:14.318 | INFO     | task=prices endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Command finished duration_ms=4916.07
+2026-05-24 13:30:17.871 | INFO     | task=fin_report endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Incoming command text='Финансовый отчет'
+2026-05-24 13:30:22.240 | INFO     | task=analytics_read endpoint=fin_rep_weekly account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sheet loaded rows=20 cols=30 header_row=2
+2026-05-24 13:30:22.247 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sending message total_len=417 chunks=1
+2026-05-24 13:30:22.338 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Chunk sent idx=1 size=417
+2026-05-24 13:30:22.339 | INFO     | task=fin_report endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Command finished duration_ms=4467.56
+2026-05-24 13:30:35.649 | INFO     | task=problem_products endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Incoming command text='Проблемные товары'
+2026-05-24 13:30:38.203 | ERROR    | task=analytics_read endpoint=advert_stat account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Google Sheets read failed: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+Traceback (most recent call last):
+
+  File "D:\Pytnon_scripts\ba_name\run_bot.py", line 5, in <module>
+    run_polling()
+    └ <function run_polling at 0x0000026CE284CEA0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\app.py", line 71, in run_polling
+    asyncio.run(run_polling_async())
+    │       │   └ <function run_polling_async at 0x0000026CE284CF40>
+    │       └ <function run at 0x0000026CAA1EED40>
+    └ <module 'asyncio' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object run_polling_async at 0x0000026CA830CD00>
+           │      └ <function Runner.run at 0x0000026CAA2BF4C0>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<run_polling_async() running at D:\Pytnon_scripts\ba_name\src\bot\app.py:61> wait_for=<Futur...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000026CAA2BD080>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000026CAA2BCFE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000026CAA2BEDE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2034, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000026CAA1C9D00>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+                     │    │           │    │         └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,)}
+                     │    │           │    └ Update(update_id=544243934, message=Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0))...
+                     │    │           └ <aiogram.client.bot.Bot object at 0x0000026CE21B0050>
+                     │    └ <function Dispatcher.feed_update at 0x0000026CAFE2A700>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+                     │    │      └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                     │    └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2865A50>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243934, message=Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.dispatcher.middlewares.user_context.UserContextMiddleware object at 0x0000026CE27E9D30>, functools...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243934, message=Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.fsm.middleware.FSMContextMiddleware object at 0x0000026CE27EA120>, <function TelegramEventObserver...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243934, message=Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0))...
+                 └ <function TelegramEventObserver.trigger at 0x0000026CE284F240>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Update(update_id=544243934, message=Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0))...
+                 └ <function CallableObject.call at 0x0000026CE284F880>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<bound method Dispatcher._listen_update of <Dispatcher '0x26ce107fcb0'>>, Update(update_id=544243934, messa...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+                 │    │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │    │                           │                  └ Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │    │                           └ 'message'
+                 │    └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F9C0>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2864050>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 193, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+                     │      │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │      │                           │                  └ Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │      │                           └ 'message'
+                     │      └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                     └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284FA60>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 185, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+                     │        │       │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │        │       └ Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │        └ <function TelegramEventObserver.trigger at 0x0000026CAFE29120>
+                     └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 └ <function CallableObject.call at 0x0000026CE284FBA0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<function cmd_problem_products at 0x0000026CE284CD60>, Message(message_id=272, date=datetime.datetime(2026,...
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 230, in cmd_problem_products
+    await _run_with_logging(message, "problem_products", _format_problem_products)
+          │                 │                            └ <function _format_problem_products at 0x0000026CE284C680>
+          │                 └ Message(message_id=272, date=datetime.datetime(2026, 5, 24, 10, 30, 35, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+          └ <function _run_with_logging at 0x0000026CE284C860>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 158, in _run_with_logging
+    text = _safe_text(producer, f"Не удалось выполнить команду {command_name}.")
+           │          │                                         └ 'problem_products'
+           │          └ <function _format_problem_products at 0x0000026CE284C680>
+           └ <function _safe_text at 0x0000026CE284C4A0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 78, in _safe_text
+    return handler()
+           └ <function _format_problem_products at 0x0000026CE284C680>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 106, in _format_problem_products
+    items = service.get_problem_products(min_spend=500.0, max_orders=0.0, max_cr=0.5, top_n=10)
+            │       └ <function AnalyticsQueryService.get_problem_products at 0x0000026CE2842D40>
+            └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 151, in get_problem_products
+    df = self.get_advert_stats(date_from=date_from, date_to=date_to, account=account)
+         │    │                          │                  │                └ None
+         │    │                          │                  └ None
+         │    │                          └ None
+         │    └ <function AnalyticsQueryService.get_advert_stats at 0x0000026CE2842AC0>
+         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 30, in get_advert_stats
+    df = self._reader.get_advert_stats()
+         │    │       └ <function GoogleSheetsReadService.get_advert_stats at 0x0000026CE2841E40>
+         │    └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 26, in get_advert_stats
+    return self.read_tab_as_dataframe("advert_stat")
+           │    └ <function GoogleSheetsReadService.read_tab_as_dataframe at 0x0000026CE2841F80>
+           └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+
+> File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 39, in read_tab_as_dataframe
+    sheet = GoogleTabs(table_title=self._table_title, sheet_title=sheet_name).sheet_title
+            │                      │    │                         └ 'БД_Рекламная_статистика'
+            │                      │    └ 'Наш Файл УУ ( Акселерация)'
+            │                      └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+            └ <class 'src.core.my_gspread.GoogleTabs'>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 24, in __init__
+    self._safe_connect()  # ← Подключаемся сразу
+    │    └ <function GoogleTabs._safe_connect at 0x0000026CE2841C60>
+    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2859590>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 35, in _safe_connect
+    table = self.gc.open(self.table_title)
+            │    │  │    │    └ 'Наш Файл УУ ( Акселерация)'
+            │    │  │    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2859590>
+            │    │  └ <function Client.open at 0x0000026CE2840EA0>
+            │    └ <gspread.client.Client object at 0x0000026CE285B250>
+            └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2859590>
+
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\client.py", line 157, in open
+    return Spreadsheet(self.http_client, properties)
+           │           │    │            └ {'id': '18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8', 'name': 'Наш Файл УУ ( Акселерация)', 'createdTime': '2024-01-01T08:20...
+           │           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE285B110>
+           │           └ <gspread.client.Client object at 0x0000026CE285B250>
+           └ <class 'gspread.spreadsheet.Spreadsheet'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 29, in __init__
+    metadata = self.fetch_sheet_metadata()
+               │    └ <function Spreadsheet.fetch_sheet_metadata at 0x0000026CE283BC40>
+               └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 230, in fetch_sheet_metadata
+    return self.client.fetch_sheet_metadata(self.id, params=params)
+           │    │      │                    │    │          └ None
+           │    │      │                    │    └ <property object at 0x0000026CE28290D0>
+           │    │      │                    └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+           │    │      └ <function HTTPClient.fetch_sheet_metadata at 0x0000026CE27FC360>
+           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE285B110>
+           └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 305, in fetch_sheet_metadata
+    r = self.request("get", url, params=params)
+        │    │              │           └ {'includeGridData': 'false'}
+        │    │              └ 'https://sheets.googleapis.com/v4/spreadsheets/18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8'
+        │    └ <function HTTPClient.request at 0x0000026CE27BFC40>
+        └ <gspread.http_client.HTTPClient object at 0x0000026CE285B110>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 128, in request
+    raise APIError(response)
+          │        └ <Response [429]>
+          └ <class 'gspread.exceptions.APIError'>
+
+gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+2026-05-24 13:30:38.260 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sending message total_len=49 chunks=1
+2026-05-24 13:30:38.363 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Chunk sent idx=1 size=49
+2026-05-24 13:30:38.363 | INFO     | task=problem_products endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Command finished duration_ms=2714.36
+2026-05-24 13:30:42.266 | INFO     | task=ad_stats endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Incoming command text='Рекламная статистика'
+2026-05-24 13:30:44.729 | ERROR    | task=analytics_read endpoint=advert_stat account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Google Sheets read failed: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+Traceback (most recent call last):
+
+  File "D:\Pytnon_scripts\ba_name\run_bot.py", line 5, in <module>
+    run_polling()
+    └ <function run_polling at 0x0000026CE284CEA0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\app.py", line 71, in run_polling
+    asyncio.run(run_polling_async())
+    │       │   └ <function run_polling_async at 0x0000026CE284CF40>
+    │       └ <function run at 0x0000026CAA1EED40>
+    └ <module 'asyncio' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object run_polling_async at 0x0000026CA830CD00>
+           │      └ <function Runner.run at 0x0000026CAA2BF4C0>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<run_polling_async() running at D:\Pytnon_scripts\ba_name\src\bot\app.py:61> wait_for=<Futur...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000026CAA2BD080>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000026CAA2BCFE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000026CAA2BEDE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2034, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000026CAA1C9D00>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+                     │    │           │    │         └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,)}
+                     │    │           │    └ Update(update_id=544243935, message=Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0))...
+                     │    │           └ <aiogram.client.bot.Bot object at 0x0000026CE21B0050>
+                     │    └ <function Dispatcher.feed_update at 0x0000026CAFE2A700>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+                     │    │      └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                     │    └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2865A50>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243935, message=Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.dispatcher.middlewares.user_context.UserContextMiddleware object at 0x0000026CE27E9D30>, functools...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243935, message=Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.fsm.middleware.FSMContextMiddleware object at 0x0000026CE27EA120>, <function TelegramEventObserver...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243935, message=Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0))...
+                 └ <function TelegramEventObserver.trigger at 0x0000026CE284F7E0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Update(update_id=544243935, message=Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0))...
+                 └ <function CallableObject.call at 0x0000026CE284F880>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<bound method Dispatcher._listen_update of <Dispatcher '0x26ce107fcb0'>>, Update(update_id=544243935, messa...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+                 │    │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │    │                           │                  └ Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │    │                           └ 'message'
+                 │    └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F9C0>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2864050>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 193, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+                     │      │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │      │                           │                  └ Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │      │                           └ 'message'
+                     │      └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                     └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284FA60>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 185, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+                     │        │       │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │        │       └ Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │        └ <function TelegramEventObserver.trigger at 0x0000026CAFE29120>
+                     └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Message(message_id=274, date=datetime.datetime(2026, 5, 24, 10, 30, 42, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 └ <function CallableObject.call at 0x0000026CAA77D1C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<function cmd_ad_stats at 0x0000026CE284CB80>, Message(message_id=274, date=datetime.datetime(2026, 5, 24, ...
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 207, in cmd_ad_stats
+    await _run_with_logging(
+          └ <function _run_with_logging at 0x0000026CE284C860>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 158, in _run_with_logging
+    text = _safe_text(producer, f"Не удалось выполнить команду {command_name}.")
+           │          │                                         └ 'ad_stats'
+           │          └ <function cmd_ad_stats.<locals>.<lambda> at 0x0000026CE284F6A0>
+           └ <function _safe_text at 0x0000026CE284C4A0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 78, in _safe_text
+    return handler()
+           └ <function cmd_ad_stats.<locals>.<lambda> at 0x0000026CE284F6A0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 210, in <lambda>
+    lambda: _render_table_preview(service.get_advert_stats().head(10), "Рекламная статистика"),
+            │                     │       └ <function AnalyticsQueryService.get_advert_stats at 0x0000026CE2842AC0>
+            │                     └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+            └ <function _render_table_preview at 0x0000026CE284C540>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 30, in get_advert_stats
+    df = self._reader.get_advert_stats()
+         │    │       └ <function GoogleSheetsReadService.get_advert_stats at 0x0000026CE2841E40>
+         │    └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 26, in get_advert_stats
+    return self.read_tab_as_dataframe("advert_stat")
+           │    └ <function GoogleSheetsReadService.read_tab_as_dataframe at 0x0000026CE2841F80>
+           └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+
+> File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 39, in read_tab_as_dataframe
+    sheet = GoogleTabs(table_title=self._table_title, sheet_title=sheet_name).sheet_title
+            │                      │    │                         └ 'БД_Рекламная_статистика'
+            │                      │    └ 'Наш Файл УУ ( Акселерация)'
+            │                      └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+            └ <class 'src.core.my_gspread.GoogleTabs'>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 24, in __init__
+    self._safe_connect()  # ← Подключаемся сразу
+    │    └ <function GoogleTabs._safe_connect at 0x0000026CE2841C60>
+    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE281EC40>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 35, in _safe_connect
+    table = self.gc.open(self.table_title)
+            │    │  │    │    └ 'Наш Файл УУ ( Акселерация)'
+            │    │  │    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE281EC40>
+            │    │  └ <function Client.open at 0x0000026CE2840EA0>
+            │    └ <gspread.client.Client object at 0x0000026CE281D6E0>
+            └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE281EC40>
+
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\client.py", line 157, in open
+    return Spreadsheet(self.http_client, properties)
+           │           │    │            └ {'id': '18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8', 'name': 'Наш Файл УУ ( Акселерация)', 'createdTime': '2024-01-01T08:20...
+           │           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE281E780>
+           │           └ <gspread.client.Client object at 0x0000026CE281D6E0>
+           └ <class 'gspread.spreadsheet.Spreadsheet'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 29, in __init__
+    metadata = self.fetch_sheet_metadata()
+               │    └ <function Spreadsheet.fetch_sheet_metadata at 0x0000026CE283BC40>
+               └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 230, in fetch_sheet_metadata
+    return self.client.fetch_sheet_metadata(self.id, params=params)
+           │    │      │                    │    │          └ None
+           │    │      │                    │    └ <property object at 0x0000026CE28290D0>
+           │    │      │                    └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+           │    │      └ <function HTTPClient.fetch_sheet_metadata at 0x0000026CE27FC360>
+           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE281E780>
+           └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 305, in fetch_sheet_metadata
+    r = self.request("get", url, params=params)
+        │    │              │           └ {'includeGridData': 'false'}
+        │    │              └ 'https://sheets.googleapis.com/v4/spreadsheets/18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8'
+        │    └ <function HTTPClient.request at 0x0000026CE27BFC40>
+        └ <gspread.http_client.HTTPClient object at 0x0000026CE281E780>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 128, in request
+    raise APIError(response)
+          │        └ <Response [429]>
+          └ <class 'gspread.exceptions.APIError'>
+
+gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+2026-05-24 13:30:44.739 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sending message total_len=33 chunks=1
+2026-05-24 13:30:44.837 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Chunk sent idx=1 size=33
+2026-05-24 13:30:44.837 | INFO     | task=ad_stats endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Command finished duration_ms=2571.15
+2026-05-24 13:30:48.115 | INFO     | task=top_products endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Incoming command text='Топ товаров'
+2026-05-24 13:30:50.679 | ERROR    | task=analytics_read endpoint=advert_stat account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Google Sheets read failed: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+Traceback (most recent call last):
+
+  File "D:\Pytnon_scripts\ba_name\run_bot.py", line 5, in <module>
+    run_polling()
+    └ <function run_polling at 0x0000026CE284CEA0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\app.py", line 71, in run_polling
+    asyncio.run(run_polling_async())
+    │       │   └ <function run_polling_async at 0x0000026CE284CF40>
+    │       └ <function run at 0x0000026CAA1EED40>
+    └ <module 'asyncio' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object run_polling_async at 0x0000026CA830CD00>
+           │      └ <function Runner.run at 0x0000026CAA2BF4C0>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<run_polling_async() running at D:\Pytnon_scripts\ba_name\src\bot\app.py:61> wait_for=<Futur...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000026CAA2BD080>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000026CAA2BCFE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000026CAA2BEDE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2034, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000026CAA1C9D00>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+                     │    │           │    │         └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,)}
+                     │    │           │    └ Update(update_id=544243936, message=Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0))...
+                     │    │           └ <aiogram.client.bot.Bot object at 0x0000026CE21B0050>
+                     │    └ <function Dispatcher.feed_update at 0x0000026CAFE2A700>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+                     │    │      └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                     │    └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2865A50>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243936, message=Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.dispatcher.middlewares.user_context.UserContextMiddleware object at 0x0000026CE27E9D30>, functools...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243936, message=Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.fsm.middleware.FSMContextMiddleware object at 0x0000026CE27EA120>, <function TelegramEventObserver...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243936, message=Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0))...
+                 └ <function TelegramEventObserver.trigger at 0x0000026CE284F240>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Update(update_id=544243936, message=Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0))...
+                 └ <function CallableObject.call at 0x0000026CE284F7E0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<bound method Dispatcher._listen_update of <Dispatcher '0x26ce107fcb0'>>, Update(update_id=544243936, messa...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+                 │    │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │    │                           │                  └ Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │    │                           └ 'message'
+                 │    └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F880>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2864050>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 193, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+                     │      │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │      │                           │                  └ Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │      │                           └ 'message'
+                     │      └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                     └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F9C0>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 185, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+                     │        │       │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │        │       └ Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │        └ <function TelegramEventObserver.trigger at 0x0000026CAFE29120>
+                     └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 └ <function CallableObject.call at 0x0000026CE284FA60>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<function cmd_top_products at 0x0000026CE284CCC0>, Message(message_id=276, date=datetime.datetime(2026, 5, ...
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 224, in cmd_top_products
+    await _run_with_logging(message, "top_products", _format_top_products)
+          │                 │                        └ <function _format_top_products at 0x0000026CE284C5E0>
+          │                 └ Message(message_id=276, date=datetime.datetime(2026, 5, 24, 10, 30, 48, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+          └ <function _run_with_logging at 0x0000026CE284C860>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 158, in _run_with_logging
+    text = _safe_text(producer, f"Не удалось выполнить команду {command_name}.")
+           │          │                                         └ 'top_products'
+           │          └ <function _format_top_products at 0x0000026CE284C5E0>
+           └ <function _safe_text at 0x0000026CE284C4A0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 78, in _safe_text
+    return handler()
+           └ <function _format_top_products at 0x0000026CE284C5E0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 93, in _format_top_products
+    items = service.get_top_products(top_n=10)
+            │       └ <function AnalyticsQueryService.get_top_products at 0x0000026CE2842CA0>
+            └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 106, in get_top_products
+    df = self.get_advert_stats(date_from=date_from, date_to=date_to, account=account)
+         │    │                          │                  │                └ None
+         │    │                          │                  └ None
+         │    │                          └ None
+         │    └ <function AnalyticsQueryService.get_advert_stats at 0x0000026CE2842AC0>
+         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 30, in get_advert_stats
+    df = self._reader.get_advert_stats()
+         │    │       └ <function GoogleSheetsReadService.get_advert_stats at 0x0000026CE2841E40>
+         │    └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 26, in get_advert_stats
+    return self.read_tab_as_dataframe("advert_stat")
+           │    └ <function GoogleSheetsReadService.read_tab_as_dataframe at 0x0000026CE2841F80>
+           └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+
+> File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 39, in read_tab_as_dataframe
+    sheet = GoogleTabs(table_title=self._table_title, sheet_title=sheet_name).sheet_title
+            │                      │    │                         └ 'БД_Рекламная_статистика'
+            │                      │    └ 'Наш Файл УУ ( Акселерация)'
+            │                      └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+            └ <class 'src.core.my_gspread.GoogleTabs'>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 24, in __init__
+    self._safe_connect()  # ← Подключаемся сразу
+    │    └ <function GoogleTabs._safe_connect at 0x0000026CE2841C60>
+    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE281CD60>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 35, in _safe_connect
+    table = self.gc.open(self.table_title)
+            │    │  │    │    └ 'Наш Файл УУ ( Акселерация)'
+            │    │  │    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE281CD60>
+            │    │  └ <function Client.open at 0x0000026CE2840EA0>
+            │    └ <gspread.client.Client object at 0x0000026CE281FBB0>
+            └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE281CD60>
+
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\client.py", line 157, in open
+    return Spreadsheet(self.http_client, properties)
+           │           │    │            └ {'id': '18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8', 'name': 'Наш Файл УУ ( Акселерация)', 'createdTime': '2024-01-01T08:20...
+           │           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE281FA80>
+           │           └ <gspread.client.Client object at 0x0000026CE281FBB0>
+           └ <class 'gspread.spreadsheet.Spreadsheet'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 29, in __init__
+    metadata = self.fetch_sheet_metadata()
+               │    └ <function Spreadsheet.fetch_sheet_metadata at 0x0000026CE283BC40>
+               └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 230, in fetch_sheet_metadata
+    return self.client.fetch_sheet_metadata(self.id, params=params)
+           │    │      │                    │    │          └ None
+           │    │      │                    │    └ <property object at 0x0000026CE28290D0>
+           │    │      │                    └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+           │    │      └ <function HTTPClient.fetch_sheet_metadata at 0x0000026CE27FC360>
+           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE281FA80>
+           └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 305, in fetch_sheet_metadata
+    r = self.request("get", url, params=params)
+        │    │              │           └ {'includeGridData': 'false'}
+        │    │              └ 'https://sheets.googleapis.com/v4/spreadsheets/18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8'
+        │    └ <function HTTPClient.request at 0x0000026CE27BFC40>
+        └ <gspread.http_client.HTTPClient object at 0x0000026CE281FA80>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 128, in request
+    raise APIError(response)
+          │        └ <Response [429]>
+          └ <class 'gspread.exceptions.APIError'>
+
+gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+2026-05-24 13:30:50.693 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sending message total_len=33 chunks=1
+2026-05-24 13:30:50.776 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Chunk sent idx=1 size=33
+2026-05-24 13:30:50.777 | INFO     | task=top_products endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Command finished duration_ms=2661.61
+2026-05-24 13:30:53.189 | INFO     | task=summary endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Incoming command text='Сводка за день'
+2026-05-24 13:30:55.455 | ERROR    | task=analytics_read endpoint=advert_stat account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Google Sheets read failed: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+Traceback (most recent call last):
+
+  File "D:\Pytnon_scripts\ba_name\run_bot.py", line 5, in <module>
+    run_polling()
+    └ <function run_polling at 0x0000026CE284CEA0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\app.py", line 71, in run_polling
+    asyncio.run(run_polling_async())
+    │       │   └ <function run_polling_async at 0x0000026CE284CF40>
+    │       └ <function run at 0x0000026CAA1EED40>
+    └ <module 'asyncio' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object run_polling_async at 0x0000026CA830CD00>
+           │      └ <function Runner.run at 0x0000026CAA2BF4C0>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<run_polling_async() running at D:\Pytnon_scripts\ba_name\src\bot\app.py:61> wait_for=<Futur...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000026CAA2BD080>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000026CAA2BCFE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000026CAA2BEDE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2034, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000026CAA1C9D00>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+                     │    │           │    │         └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,)}
+                     │    │           │    └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                     │    │           └ <aiogram.client.bot.Bot object at 0x0000026CE21B0050>
+                     │    └ <function Dispatcher.feed_update at 0x0000026CAFE2A700>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+                     │    │      └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                     │    └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2865A50>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.dispatcher.middlewares.user_context.UserContextMiddleware object at 0x0000026CE27E9D30>, functools...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.fsm.middleware.FSMContextMiddleware object at 0x0000026CE27EA120>, <function TelegramEventObserver...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ <function TelegramEventObserver.trigger at 0x0000026CE284F560>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ <function CallableObject.call at 0x0000026CE284F7E0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<bound method Dispatcher._listen_update of <Dispatcher '0x26ce107fcb0'>>, Update(update_id=544243937, messa...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+                 │    │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │    │                           │                  └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │    │                           └ 'message'
+                 │    └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F920>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2864050>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 193, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+                     │      │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │      │                           │                  └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │      │                           └ 'message'
+                     │      └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                     └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F880>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 185, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+                     │        │       │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │        │       └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │        └ <function TelegramEventObserver.trigger at 0x0000026CAFE29120>
+                     └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 └ <function CallableObject.call at 0x0000026CE284F240>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<function cmd_summary at 0x0000026CE284CE00>, Message(message_id=278, date=datetime.datetime(2026, 5, 24, 1...
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 236, in cmd_summary
+    await _run_with_logging(message, "summary", _format_summary)
+          │                 │                   └ <function _format_summary at 0x0000026CE284C720>
+          │                 └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+          └ <function _run_with_logging at 0x0000026CE284C860>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 158, in _run_with_logging
+    text = _safe_text(producer, f"Не удалось выполнить команду {command_name}.")
+           │          │                                         └ 'summary'
+           │          └ <function _format_summary at 0x0000026CE284C720>
+           └ <function _safe_text at 0x0000026CE284C4A0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 78, in _safe_text
+    return handler()
+           └ <function _format_summary at 0x0000026CE284C720>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 119, in _format_summary
+    summary = service.get_daily_summary()
+              │       └ <function AnalyticsQueryService.get_daily_summary at 0x0000026CE2842DE0>
+              └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 188, in get_daily_summary
+    advert_df = self.get_advert_stats(date_from=date, date_to=date) if date else self.get_advert_stats()
+                │    │                          │             │        │         │    └ <function AnalyticsQueryService.get_advert_stats at 0x0000026CE2842AC0>
+                │    │                          │             │        │         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+                │    │                          │             │        └ None
+                │    │                          │             └ None
+                │    │                          └ None
+                │    └ <function AnalyticsQueryService.get_advert_stats at 0x0000026CE2842AC0>
+                └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 30, in get_advert_stats
+    df = self._reader.get_advert_stats()
+         │    │       └ <function GoogleSheetsReadService.get_advert_stats at 0x0000026CE2841E40>
+         │    └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 26, in get_advert_stats
+    return self.read_tab_as_dataframe("advert_stat")
+           │    └ <function GoogleSheetsReadService.read_tab_as_dataframe at 0x0000026CE2841F80>
+           └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+
+> File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 39, in read_tab_as_dataframe
+    sheet = GoogleTabs(table_title=self._table_title, sheet_title=sheet_name).sheet_title
+            │                      │    │                         └ 'БД_Рекламная_статистика'
+            │                      │    └ 'Наш Файл УУ ( Акселерация)'
+            │                      └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+            └ <class 'src.core.my_gspread.GoogleTabs'>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 24, in __init__
+    self._safe_connect()  # ← Подключаемся сразу
+    │    └ <function GoogleTabs._safe_connect at 0x0000026CE2841C60>
+    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2889490>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 35, in _safe_connect
+    table = self.gc.open(self.table_title)
+            │    │  │    │    └ 'Наш Файл УУ ( Акселерация)'
+            │    │  │    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2889490>
+            │    │  └ <function Client.open at 0x0000026CE2840EA0>
+            │    └ <gspread.client.Client object at 0x0000026CE2888170>
+            └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2889490>
+
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\client.py", line 157, in open
+    return Spreadsheet(self.http_client, properties)
+           │           │    │            └ {'id': '18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8', 'name': 'Наш Файл УУ ( Акселерация)', 'createdTime': '2024-01-01T08:20...
+           │           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE2889EB0>
+           │           └ <gspread.client.Client object at 0x0000026CE2888170>
+           └ <class 'gspread.spreadsheet.Spreadsheet'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 29, in __init__
+    metadata = self.fetch_sheet_metadata()
+               │    └ <function Spreadsheet.fetch_sheet_metadata at 0x0000026CE283BC40>
+               └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 230, in fetch_sheet_metadata
+    return self.client.fetch_sheet_metadata(self.id, params=params)
+           │    │      │                    │    │          └ None
+           │    │      │                    │    └ <property object at 0x0000026CE28290D0>
+           │    │      │                    └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+           │    │      └ <function HTTPClient.fetch_sheet_metadata at 0x0000026CE27FC360>
+           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE2889EB0>
+           └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 305, in fetch_sheet_metadata
+    r = self.request("get", url, params=params)
+        │    │              │           └ {'includeGridData': 'false'}
+        │    │              └ 'https://sheets.googleapis.com/v4/spreadsheets/18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8'
+        │    └ <function HTTPClient.request at 0x0000026CE27BFC40>
+        └ <gspread.http_client.HTTPClient object at 0x0000026CE2889EB0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 128, in request
+    raise APIError(response)
+          │        └ <Response [429]>
+          └ <class 'gspread.exceptions.APIError'>
+
+gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+2026-05-24 13:30:57.855 | ERROR    | task=analytics_read endpoint=current_price account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Google Sheets read failed: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+Traceback (most recent call last):
+
+  File "D:\Pytnon_scripts\ba_name\run_bot.py", line 5, in <module>
+    run_polling()
+    └ <function run_polling at 0x0000026CE284CEA0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\app.py", line 71, in run_polling
+    asyncio.run(run_polling_async())
+    │       │   └ <function run_polling_async at 0x0000026CE284CF40>
+    │       └ <function run at 0x0000026CAA1EED40>
+    └ <module 'asyncio' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object run_polling_async at 0x0000026CA830CD00>
+           │      └ <function Runner.run at 0x0000026CAA2BF4C0>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<run_polling_async() running at D:\Pytnon_scripts\ba_name\src\bot\app.py:61> wait_for=<Futur...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000026CAA2BD080>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000026CAA2BCFE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000026CAA2BEDE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2034, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000026CAA1C9D00>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+                     │    │           │    │         └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,)}
+                     │    │           │    └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                     │    │           └ <aiogram.client.bot.Bot object at 0x0000026CE21B0050>
+                     │    └ <function Dispatcher.feed_update at 0x0000026CAFE2A700>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+                     │    │      └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                     │    └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2865A50>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.dispatcher.middlewares.user_context.UserContextMiddleware object at 0x0000026CE27E9D30>, functools...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.fsm.middleware.FSMContextMiddleware object at 0x0000026CE27EA120>, <function TelegramEventObserver...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ <function TelegramEventObserver.trigger at 0x0000026CE284F560>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ <function CallableObject.call at 0x0000026CE284F7E0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<bound method Dispatcher._listen_update of <Dispatcher '0x26ce107fcb0'>>, Update(update_id=544243937, messa...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+                 │    │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │    │                           │                  └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │    │                           └ 'message'
+                 │    └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F920>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2864050>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 193, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+                     │      │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │      │                           │                  └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │      │                           └ 'message'
+                     │      └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                     └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F880>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 185, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+                     │        │       │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │        │       └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │        └ <function TelegramEventObserver.trigger at 0x0000026CAFE29120>
+                     └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 └ <function CallableObject.call at 0x0000026CE284F240>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<function cmd_summary at 0x0000026CE284CE00>, Message(message_id=278, date=datetime.datetime(2026, 5, 24, 1...
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 236, in cmd_summary
+    await _run_with_logging(message, "summary", _format_summary)
+          │                 │                   └ <function _format_summary at 0x0000026CE284C720>
+          │                 └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+          └ <function _run_with_logging at 0x0000026CE284C860>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 158, in _run_with_logging
+    text = _safe_text(producer, f"Не удалось выполнить команду {command_name}.")
+           │          │                                         └ 'summary'
+           │          └ <function _format_summary at 0x0000026CE284C720>
+           └ <function _safe_text at 0x0000026CE284C4A0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 78, in _safe_text
+    return handler()
+           └ <function _format_summary at 0x0000026CE284C720>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 119, in _format_summary
+    summary = service.get_daily_summary()
+              │       └ <function AnalyticsQueryService.get_daily_summary at 0x0000026CE2842DE0>
+              └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 189, in get_daily_summary
+    price_df = self.get_current_prices()
+               │    └ <function AnalyticsQueryService.get_current_prices at 0x0000026CE2842200>
+               └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 19, in get_current_prices
+    df = self._reader.get_current_prices()
+         │    │       └ <function GoogleSheetsReadService.get_current_prices at 0x0000026CE2841B20>
+         │    └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 23, in get_current_prices
+    return self.read_tab_as_dataframe("current_price")
+           │    └ <function GoogleSheetsReadService.read_tab_as_dataframe at 0x0000026CE2841F80>
+           └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+
+> File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 39, in read_tab_as_dataframe
+    sheet = GoogleTabs(table_title=self._table_title, sheet_title=sheet_name).sheet_title
+            │                      │    │                         └ 'Текущая цена'
+            │                      │    └ 'Наш Файл УУ ( Акселерация)'
+            │                      └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+            └ <class 'src.core.my_gspread.GoogleTabs'>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 24, in __init__
+    self._safe_connect()  # ← Подключаемся сразу
+    │    └ <function GoogleTabs._safe_connect at 0x0000026CE2841C60>
+    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2819BF0>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 35, in _safe_connect
+    table = self.gc.open(self.table_title)
+            │    │  │    │    └ 'Наш Файл УУ ( Акселерация)'
+            │    │  │    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2819BF0>
+            │    │  └ <function Client.open at 0x0000026CE2840EA0>
+            │    └ <gspread.client.Client object at 0x0000026CE281B8A0>
+            └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2819BF0>
+
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\client.py", line 157, in open
+    return Spreadsheet(self.http_client, properties)
+           │           │    │            └ {'id': '18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8', 'name': 'Наш Файл УУ ( Акселерация)', 'createdTime': '2024-01-01T08:20...
+           │           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE281B790>
+           │           └ <gspread.client.Client object at 0x0000026CE281B8A0>
+           └ <class 'gspread.spreadsheet.Spreadsheet'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 29, in __init__
+    metadata = self.fetch_sheet_metadata()
+               │    └ <function Spreadsheet.fetch_sheet_metadata at 0x0000026CE283BC40>
+               └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 230, in fetch_sheet_metadata
+    return self.client.fetch_sheet_metadata(self.id, params=params)
+           │    │      │                    │    │          └ None
+           │    │      │                    │    └ <property object at 0x0000026CE28290D0>
+           │    │      │                    └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+           │    │      └ <function HTTPClient.fetch_sheet_metadata at 0x0000026CE27FC360>
+           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE281B790>
+           └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 305, in fetch_sheet_metadata
+    r = self.request("get", url, params=params)
+        │    │              │           └ {'includeGridData': 'false'}
+        │    │              └ 'https://sheets.googleapis.com/v4/spreadsheets/18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8'
+        │    └ <function HTTPClient.request at 0x0000026CE27BFC40>
+        └ <gspread.http_client.HTTPClient object at 0x0000026CE281B790>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 128, in request
+    raise APIError(response)
+          │        └ <Response [429]>
+          └ <class 'gspread.exceptions.APIError'>
+
+gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+2026-05-24 13:31:01.205 | ERROR    | task=analytics_read endpoint=fin_rep_weekly account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Google Sheets read failed: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+Traceback (most recent call last):
+
+  File "D:\Pytnon_scripts\ba_name\run_bot.py", line 5, in <module>
+    run_polling()
+    └ <function run_polling at 0x0000026CE284CEA0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\app.py", line 71, in run_polling
+    asyncio.run(run_polling_async())
+    │       │   └ <function run_polling_async at 0x0000026CE284CF40>
+    │       └ <function run at 0x0000026CAA1EED40>
+    └ <module 'asyncio' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object run_polling_async at 0x0000026CA830CD00>
+           │      └ <function Runner.run at 0x0000026CAA2BF4C0>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<run_polling_async() running at D:\Pytnon_scripts\ba_name\src\bot\app.py:61> wait_for=<Futur...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000026CAA2BD080>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000026CE27E97F0>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000026CAA2BCFE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000026CAA2BEDE0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2034, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000026CAA1C9D00>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+                     │    │           │    │         └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,)}
+                     │    │           │    └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                     │    │           └ <aiogram.client.bot.Bot object at 0x0000026CE21B0050>
+                     │    └ <function Dispatcher.feed_update at 0x0000026CAFE2A700>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+                     │    │      └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                     │    └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2865A50>
+                     └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.dispatcher.middlewares.user_context.UserContextMiddleware object at 0x0000026CE27E9D30>, functools...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ functools.partial(<aiogram.fsm.middleware.FSMContextMiddleware object at 0x0000026CE27EA120>, <function TelegramEventObserver...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+                 │       │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │       └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ <function TelegramEventObserver.trigger at 0x0000026CE284F560>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Update(update_id=544243937, message=Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0))...
+                 └ <function CallableObject.call at 0x0000026CE284F7E0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<bound method Dispatcher._listen_update of <Dispatcher '0x26ce107fcb0'>>, Update(update_id=544243937, messa...
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+                 │    │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │    │                           │                  └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │    │                           └ 'message'
+                 │    └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F920>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE2864050>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Dispatcher '0x26ce107fcb0'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 193, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+                     │      │                           │                  │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │      │                           │                  └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │      │                           └ 'message'
+                     │      └ <function Router.propagate_event at 0x0000026CAFE29D00>
+                     └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 165, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+                 │        │                     │               │           └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │        │                     │               └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 │        │                     └ <function Router.propagate_event.<locals>._wrapped at 0x0000026CE284F880>
+                 │        └ <function TelegramEventObserver.wrap_outer_middleware at 0x0000026CAFE28FE0>
+                 └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 157, in _wrapped
+    return await self._propagate_event(
+                 │    └ <function Router._propagate_event at 0x0000026CAFE29DA0>
+                 └ <Router 'analytics_bot'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 185, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+                     │        │       │        └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                     │        │       └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                     │        └ <function TelegramEventObserver.trigger at 0x0000026CAFE29120>
+                     └ <aiogram.dispatcher.event.telegram.TelegramEventObserver object at 0x0000026CE26978C0>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+                 │             │      └ {'dispatcher': <Dispatcher '0x26ce107fcb0'>, 'bots': (<aiogram.client.bot.Bot object at 0x0000026CE21B0050>,), 'bot': <aiogra...
+                 │             └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+                 └ <function CallableObject.call at 0x0000026CE284F240>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+                 └ functools.partial(<function cmd_summary at 0x0000026CE284CE00>, Message(message_id=278, date=datetime.datetime(2026, 5, 24, 1...
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 236, in cmd_summary
+    await _run_with_logging(message, "summary", _format_summary)
+          │                 │                   └ <function _format_summary at 0x0000026CE284C720>
+          │                 └ Message(message_id=278, date=datetime.datetime(2026, 5, 24, 10, 30, 53, tzinfo=TzInfo(0)), chat=Chat(id=388986455, type='priv...
+          └ <function _run_with_logging at 0x0000026CE284C860>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 158, in _run_with_logging
+    text = _safe_text(producer, f"Не удалось выполнить команду {command_name}.")
+           │          │                                         └ 'summary'
+           │          └ <function _format_summary at 0x0000026CE284C720>
+           └ <function _safe_text at 0x0000026CE284C4A0>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 78, in _safe_text
+    return handler()
+           └ <function _format_summary at 0x0000026CE284C720>
+
+  File "D:\Pytnon_scripts\ba_name\src\bot\handlers.py", line 119, in _format_summary
+    summary = service.get_daily_summary()
+              │       └ <function AnalyticsQueryService.get_daily_summary at 0x0000026CE2842DE0>
+              └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 190, in get_daily_summary
+    fin_df = self.get_fin_report(date_from=date, date_to=date) if date else self.get_fin_report()
+             │    │                        │             │        │         │    └ <function AnalyticsQueryService.get_fin_report at 0x0000026CE2842B60>
+             │    │                        │             │        │         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+             │    │                        │             │        └ None
+             │    │                        │             └ None
+             │    │                        └ None
+             │    └ <function AnalyticsQueryService.get_fin_report at 0x0000026CE2842B60>
+             └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\query_service.py", line 39, in get_fin_report
+    df = self._reader.get_fin_report()
+         │    │       └ <function GoogleSheetsReadService.get_fin_report at 0x0000026CE2841EE0>
+         │    └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+         └ <src.analytics.query_service.AnalyticsQueryService object at 0x0000026CE27E9400>
+
+  File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 29, in get_fin_report
+    return self.read_tab_as_dataframe("fin_rep_weekly", sheet_override=FIN_REPORT_READ_ONLY_SHEET)
+           │    │                                                      └ 'Анализ фин отчета арт'
+           │    └ <function GoogleSheetsReadService.read_tab_as_dataframe at 0x0000026CE2841F80>
+           └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+
+> File "D:\Pytnon_scripts\ba_name\src\analytics\read_service.py", line 39, in read_tab_as_dataframe
+    sheet = GoogleTabs(table_title=self._table_title, sheet_title=sheet_name).sheet_title
+            │                      │    │                         └ 'Анализ фин отчета арт'
+            │                      │    └ 'Наш Файл УУ ( Акселерация)'
+            │                      └ <src.analytics.read_service.GoogleSheetsReadService object at 0x0000026CE27E9550>
+            └ <class 'src.core.my_gspread.GoogleTabs'>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 24, in __init__
+    self._safe_connect()  # ← Подключаемся сразу
+    │    └ <function GoogleTabs._safe_connect at 0x0000026CE2841C60>
+    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2819BF0>
+
+  File "D:\Pytnon_scripts\ba_name\src\core\my_gspread.py", line 35, in _safe_connect
+    table = self.gc.open(self.table_title)
+            │    │  │    │    └ 'Наш Файл УУ ( Акселерация)'
+            │    │  │    └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2819BF0>
+            │    │  └ <function Client.open at 0x0000026CE2840EA0>
+            │    └ <gspread.client.Client object at 0x0000026CE281B350>
+            └ <src.core.my_gspread.GoogleTabs object at 0x0000026CE2819BF0>
+
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\client.py", line 157, in open
+    return Spreadsheet(self.http_client, properties)
+           │           │    │            └ {'id': '18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8', 'name': 'Наш Файл УУ ( Акселерация)', 'createdTime': '2024-01-01T08:20...
+           │           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE281B680>
+           │           └ <gspread.client.Client object at 0x0000026CE281B350>
+           └ <class 'gspread.spreadsheet.Spreadsheet'>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 29, in __init__
+    metadata = self.fetch_sheet_metadata()
+               │    └ <function Spreadsheet.fetch_sheet_metadata at 0x0000026CE283BC40>
+               └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\spreadsheet.py", line 230, in fetch_sheet_metadata
+    return self.client.fetch_sheet_metadata(self.id, params=params)
+           │    │      │                    │    │          └ None
+           │    │      │                    │    └ <property object at 0x0000026CE28290D0>
+           │    │      │                    └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+           │    │      └ <function HTTPClient.fetch_sheet_metadata at 0x0000026CE27FC360>
+           │    └ <gspread.http_client.HTTPClient object at 0x0000026CE281B680>
+           └ <Spreadsheet 'Наш Файл УУ ( Акселерация)' id:18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 305, in fetch_sheet_metadata
+    r = self.request("get", url, params=params)
+        │    │              │           └ {'includeGridData': 'false'}
+        │    │              └ 'https://sheets.googleapis.com/v4/spreadsheets/18SPLSYmwj-A62InR9qg_cc-T550OVQeCSsKDI937gQ8'
+        │    └ <function HTTPClient.request at 0x0000026CE27BFC40>
+        └ <gspread.http_client.HTTPClient object at 0x0000026CE281B680>
+  File "D:\Pytnon_scripts\ba_name\venv\Lib\site-packages\gspread\http_client.py", line 128, in request
+    raise APIError(response)
+          │        └ <Response [429]>
+          └ <class 'gspread.exceptions.APIError'>
+
+gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:835380617177'.
+2026-05-24 13:31:01.218 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sending message total_len=125 chunks=1
+2026-05-24 13:31:01.308 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Chunk sent idx=1 size=125
+2026-05-24 13:31:01.309 | INFO     | task=summary endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Command finished duration_ms=8119.19
