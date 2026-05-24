@@ -1,4 +1,6 @@
-﻿import asyncio
+﻿"""Общие async-примитивы HTTP runtime (retry, limiter, session, metrics)."""
+
+import asyncio
 import random
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
@@ -10,6 +12,8 @@ from src.core.runtime_config import HttpSettings, load_runtime_settings
 
 @dataclass(slots=True)
 class RetryPolicy:
+    """Конфигурируемая политика ретраев с экспоненциальным backoff и jitter."""
+
     max_attempts: int = 3
     base_delay: float = 1.0
     max_delay: float = 30.0
@@ -18,6 +22,7 @@ class RetryPolicy:
 
     @classmethod
     def from_http_settings(cls, settings: HttpSettings) -> "RetryPolicy":
+        """Создает политику из централизованных runtime-настроек."""
         return cls(
             max_attempts=settings.retry_max_attempts,
             base_delay=settings.retry_base_delay,
@@ -27,6 +32,7 @@ class RetryPolicy:
         )
 
     def backoff_with_jitter(self, attempt: int, delay_override: float | None = None) -> float:
+        """Считает задержку между попытками с ограниченным случайным jitter."""
         base = delay_override if delay_override is not None else self.base_delay
         backoff = min(base * (2 ** attempt), self.max_delay)
         jitter_window = backoff * self.jitter_ratio
@@ -35,6 +41,8 @@ class RetryPolicy:
 
 @dataclass(slots=True)
 class HttpRuntimeConfig:
+    """Транспортные настройки для HTTP-сессий и лимитеров."""
+
     request_timeout_sec: float = 30.0
     global_concurrency_limit: int = 16
     connector_limit: int = 100
@@ -54,6 +62,8 @@ class HttpRuntimeConfig:
 
 @dataclass(slots=True)
 class RuntimeMetrics:
+    """In-memory счетчики для request-уровня observability."""
+
     requests_total: int = 0
     requests_failed: int = 0
     retries_total: int = 0
@@ -64,6 +74,7 @@ class RuntimeMetrics:
     max_duration_ms: float = 0.0
 
     def observe_request(self, duration_ms: float, status_code: int | None = None, success: bool = True) -> None:
+        """Фиксирует результат одного HTTP-ответа."""
         self.requests_total += 1
         if not success:
             self.requests_failed += 1
@@ -75,12 +86,15 @@ class RuntimeMetrics:
         self.avg_duration_ms = self.duration_total_ms / max(1, self.requests_total)
 
     def observe_retry(self) -> None:
+        """Увеличивает счетчик ретраев."""
         self.retries_total += 1
 
     def observe_exception(self) -> None:
+        """Увеличивает счетчик исключений."""
         self.exceptions_total += 1
 
     def snapshot(self) -> dict:
+        """Возвращает округленные значения метрик для логов."""
         return {
             "requests_total": self.requests_total,
             "requests_failed": self.requests_failed,
@@ -94,27 +108,34 @@ class RuntimeMetrics:
 
 
 class ConcurrencyLimiter:
+    """Тонкая обертка над asyncio.Semaphore для явных HTTP-слотов."""
+
     def __init__(self, limit: int) -> None:
         self._semaphore = asyncio.Semaphore(limit)
 
     @asynccontextmanager
     async def slot(self):
+        """Захватывает один слот конкурентности на время запроса."""
         async with self._semaphore:
             yield
 
 
 class SessionManager:
+    """Async context manager, владеющий lifecycle aiohttp.ClientSession."""
+
     def __init__(self, config: HttpRuntimeConfig | None = None) -> None:
         self.config = config or HttpRuntimeConfig.from_runtime_defaults()
         self._session: aiohttp.ClientSession | None = None
 
     async def __aenter__(self) -> aiohttp.ClientSession:
+        """Создает сессию с заданными timeout и connector limits."""
         timeout = aiohttp.ClientTimeout(total=self.config.request_timeout_sec)
         connector = aiohttp.TCPConnector(limit=self.config.connector_limit)
         self._session = aiohttp.ClientSession(timeout=timeout, connector=connector)
         return self._session
 
     async def __aexit__(self, exc_type, exc, tb) -> None:
+        """Всегда закрывает сессию, чтобы не оставлять открытые соединения."""
         if self._session is not None:
             await self._session.close()
         self._session = None

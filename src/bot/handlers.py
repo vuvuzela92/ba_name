@@ -1,6 +1,7 @@
-﻿from __future__ import annotations
+﻿"""Обработчики команд Telegram-бота аналитики (слой маршрутизации)."""
 
-from dataclasses import asdict
+from __future__ import annotations
+
 from time import perf_counter
 from typing import Callable
 
@@ -8,17 +9,18 @@ from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.types import Message
 
-from src.analytics import AnalyticsQueryService
+from src.bot.command_service import BotCommandService
 from src.bot.keyboards import main_menu_keyboard
 from src.bot.message_service import TelegramMessageSender
 from src.core.logging_utils import bind_context
 
 router = Router(name="analytics_bot")
-service = AnalyticsQueryService()
+command_service = BotCommandService()
 message_sender = TelegramMessageSender(max_message_len=4000)
 
 
 def _safe_text(handler: Callable[[], str], fallback: str) -> str:
+    """Выполняет callback форматтера и возвращает fallback при ошибке."""
     try:
         return handler()
     except Exception as exc:
@@ -27,75 +29,8 @@ def _safe_text(handler: Callable[[], str], fallback: str) -> str:
         return f"{fallback}\n\nТехническая ошибка: {exc}"
 
 
-def _render_table_preview(df, title: str, limit: int = 10) -> str:
-    if df is None or df.empty:
-        return f"{title}: данных нет."
-    preview = df.head(limit).to_string(index=False)
-    return f"{title} (показаны первые {min(len(df), limit)} строк):\n<pre>{preview}</pre>"
-
-
-def _format_top_products() -> str:
-    items = service.get_top_products(top_n=10)
-    if not items:
-        return "Топ товаров: данных недостаточно."
-    lines = ["Топ товаров:"]
-    for idx, item in enumerate(items, start=1):
-        lines.append(
-            f"{idx}. Артикул {item.nm_id} | аккаунт: {item.account} | "
-            f"выручка: {item.revenue:.2f} | заказы: {item.orders:.0f} | расход: {item.spend:.2f}"
-        )
-    return "\n".join(lines)
-
-
-def _format_problem_products() -> str:
-    items = service.get_problem_products(min_spend=500.0, max_orders=0.0, max_cr=0.5, top_n=10)
-    if not items:
-        return "Проблемные товары: не найдено по текущим порогам."
-    lines = ["Проблемные товары:"]
-    for idx, item in enumerate(items, start=1):
-        lines.append(
-            f"{idx}. Артикул {item.nm_id} | аккаунт: {item.account} | "
-            f"расход: {item.spend:.2f} | заказы: {item.orders:.0f} | CR: {item.cr:.2f}"
-        )
-    return "\n".join(lines)
-
-
-def _format_summary() -> str:
-    summary = service.get_daily_summary()
-    data = asdict(summary)
-    return (
-        "Краткая сводка:\n"
-        f"Период: {data['date']}\n"
-        f"Строк в рекламе: {data['adverts_count']}\n"
-        f"Расходы: {data['total_spend']:.2f}\n"
-        f"Выручка: {data['total_revenue']:.2f}\n"
-        f"Заказы: {data['total_orders']:.0f}\n"
-        f"Строк с ценами: {data['sku_prices_count']}\n"
-        f"Строк в фин. отчете: {data['fin_rows_count']}"
-    )
-
-
-def _format_fin_report_compact() -> str:
-    compact = service.get_fin_report_compact(top_n=10)
-    total_records = compact["total_records"]
-    if total_records == 0:
-        return "Финансовый отчет: данных нет."
-
-    top_df = compact["top"]
-    lines = [
-        "Финансовый отчет (кратко):",
-        f"Записей: {total_records}",
-        f"Сумма продаж: {compact['sum_sales']:.2f}",
-        f"К перечислению: {compact['sum_payout']:.2f}",
-        f"Штрафы: {compact['sum_penalty']:.2f}",
-        "",
-        "TOP 10 записей по продажам:",
-    ]
-    lines.append(top_df.to_string(index=False) if not top_df.empty else "Нет строк для TOP 10")
-    return "\n".join(lines)
-
-
 async def _run_with_logging(message: Message, command_name: str, producer: Callable[[], str], parse_mode: str | None = None) -> None:
+    """Единая обвязка выполнения команды, отправки и логирования времени."""
     start = perf_counter()
     log = bind_context(task_name=command_name, endpoint="telegram", account=str(message.from_user.id if message.from_user else "-"))
     log.info("Incoming command text='{}'", message.text)
@@ -112,6 +47,7 @@ async def _run_with_logging(message: Message, command_name: str, producer: Calla
 
 @router.message(Command("start"))
 async def cmd_start(message: Message) -> None:
+    """Показывает стартовое сообщение и основную клавиатуру."""
     text = (
         "Здравствуйте. Это бот аналитики (read-only).\n"
         "Бот не запускает WB API и не изменяет данные в таблицах.\n"
@@ -123,6 +59,7 @@ async def cmd_start(message: Message) -> None:
 @router.message(Command("help"))
 @router.message(F.text == "Помощь")
 async def cmd_help(message: Message) -> None:
+    """Показывает список доступных команд."""
     text = (
         "Доступные команды:\n"
         "/prices — текущие цены\n"
@@ -138,10 +75,11 @@ async def cmd_help(message: Message) -> None:
 @router.message(Command("prices"))
 @router.message(F.text == "Текущие цены")
 async def cmd_prices(message: Message) -> None:
+    """Возвращает превью таблицы текущих цен."""
     await _run_with_logging(
         message,
         "prices",
-        lambda: _render_table_preview(service.get_current_prices(limit=10), "Текущие цены"),
+        command_service.get_prices_text,
         parse_mode="HTML",
     )
 
@@ -149,10 +87,11 @@ async def cmd_prices(message: Message) -> None:
 @router.message(Command("ad_stats"))
 @router.message(F.text == "Рекламная статистика")
 async def cmd_ad_stats(message: Message) -> None:
+    """Возвращает превью рекламной статистики."""
     await _run_with_logging(
         message,
         "ad_stats",
-        lambda: _render_table_preview(service.get_advert_stats().head(10), "Рекламная статистика"),
+        command_service.get_ad_stats_text,
         parse_mode="HTML",
     )
 
@@ -160,22 +99,46 @@ async def cmd_ad_stats(message: Message) -> None:
 @router.message(Command("fin_report"))
 @router.message(F.text == "Финансовый отчет")
 async def cmd_fin_report(message: Message) -> None:
-    await _run_with_logging(message, "fin_report", _format_fin_report_compact)
+    """Возвращает компактный финансовый отчет с итогами и TOP строками."""
+    await _run_with_logging(
+        message,
+        "fin_report",
+        command_service.get_fin_report_text,
+        parse_mode="HTML",
+    )
 
 
 @router.message(Command("top_products"))
 @router.message(F.text == "Топ товаров")
 async def cmd_top_products(message: Message) -> None:
-    await _run_with_logging(message, "top_products", _format_top_products)
+    """Возвращает рейтинг топовых товаров."""
+    await _run_with_logging(
+        message,
+        "top_products",
+        command_service.get_top_products_text,
+        parse_mode="HTML",
+    )
 
 
 @router.message(Command("problem_products"))
 @router.message(F.text == "Проблемные товары")
 async def cmd_problem_products(message: Message) -> None:
-    await _run_with_logging(message, "problem_products", _format_problem_products)
+    """Возвращает товары с низкой эффективностью по текущим порогам."""
+    await _run_with_logging(
+        message,
+        "problem_products",
+        command_service.get_problem_products_text,
+        parse_mode="HTML",
+    )
 
 
 @router.message(Command("summary"))
 @router.message(F.text == "Сводка за день")
 async def cmd_summary(message: Message) -> None:
-    await _run_with_logging(message, "summary", _format_summary)
+    """Возвращает краткую сводку по подготовленным данным."""
+    await _run_with_logging(
+        message,
+        "summary",
+        command_service.get_summary_text,
+        parse_mode="HTML",
+    )

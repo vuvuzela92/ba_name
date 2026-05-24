@@ -1,4 +1,6 @@
-﻿from src.core.wb_client import WildberriesClient
+﻿"""Общий оркестратор scraper-задач для асинхронного сбора данных WB."""
+
+from src.core.wb_client import WildberriesClient
 from src.core.http_runtime import (
     ConcurrencyLimiter,
     HttpRuntimeConfig,
@@ -15,7 +17,11 @@ import asyncio
 
 
 class WBScraper:
-    """Orchestrator for Wildberries data collection."""
+    """Оркестратор сбора данных Wildberries.
+
+    Централизует сетевые аспекты: общая сессия, retry-политика,
+    limiter конкурентности и обработка partial failures после gather.
+    """
 
     def __init__(self, max_concurrent: int = 16):
         self.max_concurrent = max_concurrent
@@ -26,6 +32,7 @@ class WBScraper:
         self.limiter = ConcurrencyLimiter(self.runtime_config.global_concurrency_limit)
 
     async def _fetch_funnel(self, days_count=1):
+        """Собирает funnel-данные за последние дни по всем аккаунтам."""
         tokens = load_api_tokens()
         dates = [
             (datetime.now() - timedelta(days=day)).strftime("%Y-%m-%d")
@@ -66,6 +73,7 @@ class WBScraper:
             return results
 
     async def _fetch_adv_camp_list(self):
+        """Собирает списки рекламных кампаний по нужным статусам."""
         from src.advert.advert_service import WbAdverStat
 
         tokens = load_api_tokens()
@@ -112,6 +120,7 @@ class WBScraper:
             return clean_results
 
     async def _fetch_advert_stat(self, adverts=None, date_from: str = None, date_to: str = None) -> list:
+        """Собирает детальную рекламную статистику батчами campaign id."""
         from src.advert.advert_service import WbAdverStat
 
         if date_from is None:
@@ -164,6 +173,7 @@ class WBScraper:
             return clean_results
 
     async def _fetch_advert_spend(self, date_from: str = None, date_to: str = None) -> list:
+        """Собирает агрегированные рекламные затраты по всем аккаунтам."""
         from src.advert.advert_service import WbAdverStat
 
         if date_from is None:

@@ -1,4 +1,6 @@
-﻿from __future__ import annotations
+﻿"""Инициализация и жизненный цикл запуска Telegram-бота (polling)."""
+
+from __future__ import annotations
 
 import asyncio
 
@@ -15,10 +17,12 @@ from src.core.runtime_config import load_runtime_settings
 
 
 def _get_bot_token() -> str:
+    """Читает и валидирует токен бота из переменных окружения."""
     return BotConfig.from_env().telegram_bot_token
 
 
 async def _set_commands(bot: Bot) -> None:
+    """Регистрирует фиксированный список команд в интерфейсе Telegram."""
     commands = [
         BotCommand(command="start", description="Старт"),
         BotCommand(command="help", description="Помощь"),
@@ -33,6 +37,7 @@ async def _set_commands(bot: Bot) -> None:
 
 
 def build_dispatcher() -> Dispatcher:
+    """Создает dispatcher и подключает роутеры проекта."""
     log = bind_context(task_name="bot_init", endpoint="dispatcher")
     dp = Dispatcher()
     dp.include_router(router)
@@ -41,6 +46,7 @@ def build_dispatcher() -> Dispatcher:
 
 
 async def run_polling_async() -> None:
+    """Инициализирует зависимости и запускает долгоживущий polling-цикл."""
     runtime_settings = load_runtime_settings()
     setup_logging(runtime_settings.logging)
     log = bind_context(task_name="bot_run", endpoint="polling")
@@ -55,6 +61,7 @@ async def run_polling_async() -> None:
     try:
         await dp.start_polling(bot)
     except TelegramBadRequest as exc:
+        # Ошибки Telegram API логируем отдельно, чтобы упростить диагностику в проде.
         log.exception("Telegram API bad request: {}", exc)
         raise
     except Exception as exc:
@@ -63,4 +70,5 @@ async def run_polling_async() -> None:
 
 
 def run_polling() -> None:
+    """Синхронный wrapper для запуска из CLI-файла run_bot.py."""
     asyncio.run(run_polling_async())

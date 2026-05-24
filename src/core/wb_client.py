@@ -1,4 +1,6 @@
-﻿import asyncio
+﻿"""Базовый HTTP-клиент Wildberries с retry и структурным логированием."""
+
+import asyncio
 import json as json_lib
 from contextlib import asynccontextmanager
 from time import perf_counter
@@ -13,11 +15,12 @@ from src.core.runtime_config import load_runtime_settings
 
 @asynccontextmanager
 async def _noop_async_context():
+    """Fallback-контекст, когда limiter не настроен."""
     yield
 
 
 class WildberriesClient:
-    """Base WB API client with retry, limiter, and structured logging."""
+    """Базовый WB API-клиент с retry, limiter и observability."""
 
     def __init__(
         self,
@@ -49,12 +52,18 @@ class WildberriesClient:
         retries: int = 3,
         delay: int = 1,
     ):
+        """Выполняет HTTP-запрос с retry и единым контрактом ошибок.
+
+        Возвращает JSON при успехе, иначе None. Этот контракт сохранен
+        для обратной совместимости с существующим бизнес-кодом.
+        """
         attempts = max(retries, self.retry_policy.max_attempts)
         endpoint = urlparse(url).path
 
         for attempt in range(attempts):
             started = perf_counter()
             try:
+                # Ограничиваем параллелизм только если limiter действительно передан.
                 lock_ctx = self.limiter.slot() if self.limiter else _noop_async_context()
                 async with lock_ctx:
                     async with self.session.request(

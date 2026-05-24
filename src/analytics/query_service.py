@@ -1,4 +1,6 @@
-﻿from __future__ import annotations
+﻿"""Read-only query-слой, подготавливающий аналитические срезы для команд бота."""
+
+from __future__ import annotations
 
 from dataclasses import asdict
 from typing import Any
@@ -10,12 +12,16 @@ from src.analytics.schemas import DailySummary, ProblemProduct, TopProduct
 
 
 class AnalyticsQueryService:
-    """Read-only analytics queries for future bot commands."""
+    """Высокоуровневые аналитические запросы к данным Google Sheets.
+
+    Сервис устойчив к вариациям названий колонок и пустым данным.
+    """
 
     def __init__(self, reader: GoogleSheetsReadService | None = None) -> None:
         self._reader = reader or GoogleSheetsReadService()
 
     def get_current_prices(self, limit: int | None = None) -> pd.DataFrame:
+        """Возвращает текущие цены с опциональным ограничением строк."""
         df = self._reader.get_current_prices()
         if limit is not None and limit > 0:
             return df.head(limit)
@@ -27,6 +33,7 @@ class AnalyticsQueryService:
         date_to: str | None = None,
         account: str | None = None,
     ) -> pd.DataFrame:
+        """Возвращает рекламную статистику с фильтрацией по дате и аккаунту."""
         df = self._reader.get_advert_stats()
         return self._filter_advert_df(df, date_from=date_from, date_to=date_to, account=account)
 
@@ -36,6 +43,7 @@ class AnalyticsQueryService:
         date_to: str | None = None,
         account: str | None = None,
     ) -> pd.DataFrame:
+        """Возвращает фин. отчет с фильтрацией по аккаунту/дате при наличии колонок."""
         df = self._reader.get_fin_report()
         if df.empty:
             return df
@@ -54,6 +62,7 @@ class AnalyticsQueryService:
         return df
 
     def get_fin_report_compact(self, top_n: int = 10) -> dict[str, Any]:
+        """Возвращает компактный фин. payload: итоги + TOP строк по продажам."""
         df = self.get_fin_report()
         if df.empty:
             return {
@@ -71,6 +80,7 @@ class AnalyticsQueryService:
         account_col = self._find_column(df, ["account", "Аккаунт"])
 
         result_df = df.copy()
+        # Нормализуем числовые поля, потому что из Sheets часто приходят строки.
         if sales_col:
             result_df["_sales"] = pd.to_numeric(result_df[sales_col], errors="coerce").fillna(0.0)
         else:
@@ -103,6 +113,7 @@ class AnalyticsQueryService:
         account: str | None = None,
         top_n: int = 10,
     ) -> list[TopProduct]:
+        """Возвращает топ товаров в разрезе аккаунт+артикул."""
         df = self.get_advert_stats(date_from=date_from, date_to=date_to, account=account)
         if df.empty:
             return []
@@ -148,6 +159,7 @@ class AnalyticsQueryService:
         max_cr: float = 0.0,
         top_n: int = 10,
     ) -> list[ProblemProduct]:
+        """Возвращает товары, подходящие под пороги неэффективности."""
         df = self.get_advert_stats(date_from=date_from, date_to=date_to, account=account)
         if df.empty:
             return []
@@ -185,6 +197,7 @@ class AnalyticsQueryService:
         ]
 
     def get_daily_summary(self, date: str | None = None) -> DailySummary:
+        """Возвращает короткую сводку для дашборд-команды бота."""
         advert_df = self.get_advert_stats(date_from=date, date_to=date) if date else self.get_advert_stats()
         price_df = self.get_current_prices()
         fin_df = self.get_fin_report(date_from=date, date_to=date) if date else self.get_fin_report()
@@ -210,6 +223,7 @@ class AnalyticsQueryService:
 
     @staticmethod
     def _sum_column(df: pd.DataFrame, column: str | None) -> float:
+        """Безопасно суммирует числовую колонку из данных Sheets."""
         if df.empty or not column:
             return 0.0
         return float(pd.to_numeric(df[column], errors="coerce").fillna(0.0).sum())
@@ -221,6 +235,7 @@ class AnalyticsQueryService:
         date_to: str | None = None,
         account: str | None = None,
     ) -> pd.DataFrame:
+        """Применяет фильтры, оставаясь устойчивым к отсутствующим колонкам."""
         if df.empty:
             return df
 
@@ -239,6 +254,7 @@ class AnalyticsQueryService:
 
     @staticmethod
     def _find_column(df: pd.DataFrame, candidates: list[str]) -> str | None:
+        """Возвращает первую подходящую колонку без учета регистра и пробелов."""
         normalized = {str(col).strip().lower(): col for col in df.columns}
         for candidate in candidates:
             hit = normalized.get(candidate.strip().lower())
@@ -248,4 +264,5 @@ class AnalyticsQueryService:
 
     @staticmethod
     def to_dict_list(items: list[Any]) -> list[dict[str, Any]]:
+        """Преобразует dataclass-подобные объекты в словари."""
         return [asdict(item) for item in items]
