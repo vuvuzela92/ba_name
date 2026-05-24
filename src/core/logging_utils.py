@@ -4,6 +4,8 @@ from typing import Any
 
 from loguru import logger
 
+from src.core.runtime_config import LoggingSettings
+
 
 LOG_FORMAT = (
     "{time:YYYY-MM-DD HH:mm:ss.SSS} | {level:<8} | "
@@ -34,24 +36,24 @@ def bind_context(**kwargs: Any):
     return logger.bind(**context)
 
 
-def setup_logging(log_file: str = "logs/app.log") -> None:
-    Path(log_file).parent.mkdir(parents=True, exist_ok=True)
+def setup_logging(settings: LoggingSettings) -> None:
+    Path(settings.log_file).parent.mkdir(parents=True, exist_ok=True)
     logger.remove()
     logger.configure(extra=DEFAULT_CONTEXT)
 
     logger.add(
         sys.stdout,
-        level="INFO",
+        level=settings.log_level,
         format=LOG_FORMAT,
         colorize=False,
         enqueue=False,
     )
     logger.add(
-        log_file,
-        level="INFO",
+        settings.log_file,
+        level=settings.log_level,
         format=LOG_FORMAT,
-        rotation="10 MB",
-        retention="24 hours",
+        rotation=settings.log_rotation,
+        retention=settings.log_retention,
         encoding="utf-8",
         enqueue=False,
     )

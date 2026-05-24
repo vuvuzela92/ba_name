@@ -8,6 +8,7 @@ import aiohttp
 
 from src.core.http_runtime import ConcurrencyLimiter, RetryPolicy, RuntimeMetrics
 from src.core.logging_utils import bind_context
+from src.core.runtime_config import load_runtime_settings
 
 
 @asynccontextmanager
@@ -34,7 +35,8 @@ class WildberriesClient:
         self.timeout = aiohttp.ClientTimeout(total=timeout)
         self.headers = {"Authorization": self.api_key}
         self.base_url = "https://advert-api.wildberries.ru"
-        self.retry_policy = retry_policy or RetryPolicy(max_attempts=3, base_delay=1.0)
+        default_retry = RetryPolicy.from_http_settings(load_runtime_settings().http)
+        self.retry_policy = retry_policy or default_retry
         self.limiter = limiter
         self.metrics = metrics
 

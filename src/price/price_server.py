@@ -6,6 +6,7 @@
     SessionManager,
 )
 from src.core.logging_utils import bind_context
+from src.core.runtime_config import load_runtime_settings
 from src.core.utils_general import load_api_tokens
 from src.price.price import PriceWB
 import asyncio
@@ -15,9 +16,10 @@ async def fetch_get_price(nm_list: list):
     tokens = load_api_tokens()
     all_tasks = []
 
-    runtime_config = HttpRuntimeConfig()
+    runtime_settings = load_runtime_settings()
+    runtime_config = HttpRuntimeConfig.from_http_settings(runtime_settings.http)
     limiter = ConcurrencyLimiter(runtime_config.global_concurrency_limit)
-    retry_policy = RetryPolicy()
+    retry_policy = RetryPolicy.from_http_settings(runtime_settings.http)
     metrics = RuntimeMetrics()
 
     async with SessionManager(runtime_config) as session:

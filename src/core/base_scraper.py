@@ -7,6 +7,7 @@ from src.core.http_runtime import (
     SessionManager,
 )
 from src.core.logging_utils import bind_context
+from src.core.runtime_config import load_runtime_settings
 from src.core.utils_general import batchify, load_api_tokens
 
 from datetime import datetime, timedelta
@@ -18,8 +19,10 @@ class WBScraper:
 
     def __init__(self, max_concurrent: int = 16):
         self.max_concurrent = max_concurrent
-        self.runtime_config = HttpRuntimeConfig(global_concurrency_limit=max_concurrent)
-        self.retry_policy = RetryPolicy()
+        runtime_settings = load_runtime_settings()
+        self.runtime_config = HttpRuntimeConfig.from_http_settings(runtime_settings.http)
+        self.runtime_config.global_concurrency_limit = max_concurrent
+        self.retry_policy = RetryPolicy.from_http_settings(runtime_settings.http)
         self.limiter = ConcurrencyLimiter(self.runtime_config.global_concurrency_limit)
 
     async def _fetch_funnel(self, days_count=1):

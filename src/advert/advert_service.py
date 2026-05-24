@@ -7,6 +7,7 @@ from src.core.http_runtime import (
     SessionManager,
 )
 from src.core.logging_utils import bind_context
+from src.core.runtime_config import load_runtime_settings
 from src.core.utils_general import load_api_tokens, batchify
 from src.advert.advert_stat import WbAdverStat
 import asyncio
@@ -23,9 +24,11 @@ class ScraperAdvert(WBScraper):
         tokens = load_api_tokens()
         campaign_statuses = 9, 11
 
-        runtime_config = HttpRuntimeConfig(global_concurrency_limit=self.max_concurrent)
+        runtime_settings = load_runtime_settings()
+        runtime_config = HttpRuntimeConfig.from_http_settings(runtime_settings.http)
+        runtime_config.global_concurrency_limit = self.max_concurrent
         limiter = ConcurrencyLimiter(runtime_config.global_concurrency_limit)
-        retry_policy = RetryPolicy()
+        retry_policy = RetryPolicy.from_http_settings(runtime_settings.http)
         metrics = RuntimeMetrics()
 
         async with SessionManager(runtime_config) as session:
@@ -73,9 +76,11 @@ class ScraperAdvert(WBScraper):
         if date_from is None:
             date_from = date_to = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
-        runtime_config = HttpRuntimeConfig(global_concurrency_limit=self.max_concurrent)
+        runtime_settings = load_runtime_settings()
+        runtime_config = HttpRuntimeConfig.from_http_settings(runtime_settings.http)
+        runtime_config.global_concurrency_limit = self.max_concurrent
         limiter = ConcurrencyLimiter(runtime_config.global_concurrency_limit)
-        retry_policy = RetryPolicy()
+        retry_policy = RetryPolicy.from_http_settings(runtime_settings.http)
         metrics = RuntimeMetrics()
 
         async with SessionManager(runtime_config) as session:
@@ -129,9 +134,11 @@ class ScraperAdvert(WBScraper):
         if date_from is None:
             date_from = date_to = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
-        runtime_config = HttpRuntimeConfig(global_concurrency_limit=self.max_concurrent)
+        runtime_settings = load_runtime_settings()
+        runtime_config = HttpRuntimeConfig.from_http_settings(runtime_settings.http)
+        runtime_config.global_concurrency_limit = self.max_concurrent
         limiter = ConcurrencyLimiter(runtime_config.global_concurrency_limit)
-        retry_policy = RetryPolicy()
+        retry_policy = RetryPolicy.from_http_settings(runtime_settings.http)
         metrics = RuntimeMetrics()
 
         async with SessionManager(runtime_config) as session:

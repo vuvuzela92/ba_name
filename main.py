@@ -4,11 +4,13 @@ import inspect
 import sys
 
 from src.core.logging_utils import bind_context, setup_logging
+from src.core.runtime_config import load_runtime_settings
 from src.tasks_registry import TASKS
 
 
 def main():
-    setup_logging()
+    settings = load_runtime_settings()
+    setup_logging(settings.logging)
 
     parser = argparse.ArgumentParser(description="Task runner")
     parser.add_argument("task", choices=list(TASKS.keys()), help="Task name to run")

@@ -5,6 +5,8 @@ from dataclasses import dataclass, field
 
 import aiohttp
 
+from src.core.runtime_config import HttpSettings, load_runtime_settings
+
 
 @dataclass(slots=True)
 class RetryPolicy:
@@ -13,6 +15,16 @@ class RetryPolicy:
     max_delay: float = 30.0
     jitter_ratio: float = 0.2
     retry_statuses: set[int] = field(default_factory=lambda: {429, 500, 502, 503, 504})
+
+    @classmethod
+    def from_http_settings(cls, settings: HttpSettings) -> "RetryPolicy":
+        return cls(
+            max_attempts=settings.retry_max_attempts,
+            base_delay=settings.retry_base_delay,
+            max_delay=settings.retry_max_delay,
+            jitter_ratio=settings.retry_jitter_ratio,
+            retry_statuses=set(settings.retry_statuses),
+        )
 
     def backoff_with_jitter(self, attempt: int, delay_override: float | None = None) -> float:
         base = delay_override if delay_override is not None else self.base_delay
@@ -26,6 +38,18 @@ class HttpRuntimeConfig:
     request_timeout_sec: float = 30.0
     global_concurrency_limit: int = 16
     connector_limit: int = 100
+
+    @classmethod
+    def from_http_settings(cls, settings: HttpSettings) -> "HttpRuntimeConfig":
+        return cls(
+            request_timeout_sec=settings.request_timeout_sec,
+            global_concurrency_limit=settings.global_concurrency_limit,
+            connector_limit=settings.connector_limit,
+        )
+
+    @classmethod
+    def from_runtime_defaults(cls) -> "HttpRuntimeConfig":
+        return cls.from_http_settings(load_runtime_settings().http)
 
 
 @dataclass(slots=True)
@@ -81,7 +105,7 @@ class ConcurrencyLimiter:
 
 class SessionManager:
     def __init__(self, config: HttpRuntimeConfig | None = None) -> None:
-        self.config = config or HttpRuntimeConfig()
+        self.config = config or HttpRuntimeConfig.from_runtime_defaults()
         self._session: aiohttp.ClientSession | None = None
 
     async def __aenter__(self) -> aiohttp.ClientSession:
