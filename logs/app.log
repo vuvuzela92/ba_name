@@ -1503,3 +1503,76 @@ gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'R
 2026-05-24 18:04:06.861 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Sending message total_len=79 chunks=1
 2026-05-24 18:04:07.343 | INFO     | task=tg_send endpoint=message account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Chunk sent idx=1 size=79
 2026-05-24 18:04:07.344 | INFO     | task=ad_stats endpoint=telegram account=388986455 status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Command finished duration_ms=3295.45
+2026-06-05 16:18:27.980 | INFO     | task=fin_rep_weekly endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | 💵 Запуск обновления данных по еженедельным финансовым отчетам
+2026-06-05 16:18:27.993 | INFO     | task=fin_rep_weekly endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Starting fin report collection tasks=2
+2026-06-05 16:18:29.241 | ERROR    | task=http_request endpoint=/api/v5/supplier/reportDetailByPeriod account=Buenos Animales status=401 attempt=1 retries=0 retry_sleep=- duration_ms=1245.36 failed=- succeeded=- | HTTP request failed without retry: access token expired; Manage tokens at https://seller.wildberries.ru/supplier-settings/access-to-api
+2026-06-05 16:18:29.323 | ERROR    | task=http_request endpoint=/api/v5/supplier/reportDetailByPeriod account=Buenos Animales status=401 attempt=1 retries=0 retry_sleep=- duration_ms=1325.12 failed=- succeeded=- | HTTP request failed without retry: access token expired; Manage tokens at https://seller.wildberries.ru/supplier-settings/access-to-api
+2026-06-05 16:18:29.327 | INFO     | task=fin_rep_weekly endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=0 succeeded=2 | Fin report collection finished. rows=0 metrics={'requests_total': 2, 'requests_failed': 2, 'retries_total': 0, 'status_429_total': 0, 'exceptions_total': 0, 'duration_total_ms': 2570.48, 'avg_duration_ms': 1285.24, 'max_duration_ms': 1325.12}
+2026-06-05 16:18:29.332 | ERROR    | task=fin_rep_weekly endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Task failed: "None of [Index(['Номер отчёта', 'Дата начала отчётного периода',\n       'Дата конца отчётного периода', 'Дата формирования отчёта',\n       'Номер строки', 'Номер поставки', 'Предмет', 'Артикул WB', 'Бренд',\n       'Артикул продавца', 'Размер', 'Баркод', 'Тип документа', 'Количество',\n       'Цена розничная', 'WB реализовал товар (продажа)',\n       'Согласованный дисконт, %', 'Размер кВВ, %', 'Обоснование для оплаты',\n       'Дата заказа', 'Дата продажи', 'Штрихкод',\n       'Цена розничная с учётом скидки', 'Количество доставок',\n       'Количество возвратов', 'Услуги по доставке товара покупателю',\n       'Скидка постоянного покупателя (СПП), %',\n       'Размер кВВ без НДС, % (базовый)', 'Вознаграждение с продаж без НДС',\n       'К перечислению продавцу', 'Возмещение за выдачу и возврат на ПВЗ',\n       'Эквайринг / Комиссия за платежи', 'Комиссия за эквайринг, %',\n       'Сумма штрафов', 'Корректировка вознаграждения WB',\n       'Возмещение издержек по логистике', 'Хранение', 'Удержания',\n       'Платная приёмка', 'Номер сборочного задания',\n       'Уникальный ID заказа (srid)', 'Тип отчёта', 'Скидка Wibes, %',\n       'account'],\n      dtype='str')] are in the [columns]"
+Traceback (most recent call last):
+
+  File "C:\Users\123\Desktop\ba_name\main.py", line 53, in <module>
+    main()
+    └ <function main at 0x0000025F3FD4B740>
+
+> File "C:\Users\123\Desktop\ba_name\main.py", line 41, in main
+    asyncio.run(original_func(**kwargs))
+    │       │   │               └ {}
+    │       │   └ <function fin_rep_weekly_async at 0x0000025F4C4612D0>
+    │       └ <function run at 0x0000025F420BC0F0>
+    └ <module 'asyncio' from 'C:\\Python314\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           │      │   └ <coroutine object fin_rep_weekly_async at 0x0000025F4C3CD540>
+           │      └ <function Runner.run at 0x0000025F420BC510>
+           └ <asyncio.runners.Runner object at 0x0000025F4C3B34D0>
+  File "C:\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           │    │                        └ <Task finished name='Task-1' coro=<fin_rep_weekly_async() done, defined at C:\Users\123\Desktop\ba_name\src\fin_report\run.py...
+           │    └ None
+           └ <asyncio.runners.Runner object at 0x0000025F4C3B34D0>
+  File "C:\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           │      └ <method 'result' of '_asyncio.Task' objects>
+           └ <Task finished name='Task-1' coro=<fin_rep_weekly_async() done, defined at C:\Users\123\Desktop\ba_name\src\fin_report\run.py...
+
+  File "C:\Users\123\Desktop\ba_name\src\fin_report\run.py", line 152, in fin_rep_weekly_async
+    df_gs = df_rus[cols_order]
+            │      └ ['Номер отчёта', 'Дата начала отчётного периода', 'Дата конца отчётного периода', 'Дата формирования отчёта', 'Номер строки',...
+            └ Empty DataFrame
+              Columns: []
+              Index: []
+
+  File "C:\Users\123\Desktop\ba_name\venv\Lib\site-packages\pandas\core\frame.py", line 4384, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              │    │                           └ ['Номер отчёта', 'Дата начала отчётного периода', 'Дата конца отчётного периода', 'Дата формирования отчёта', 'Номер строки',...
+              │    └ <pandas._libs.properties.AxisProperty object at 0x0000025F4B5ED870>
+              └ Empty DataFrame
+                Columns: []
+                Index: []
+  File "C:\Users\123\Desktop\ba_name\venv\Lib\site-packages\pandas\core\indexes\base.py", line 6302, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+    │    │                 │       │        └ 'columns'
+    │    │                 │       └ array([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+    │    │                 │                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,...
+    │    │                 └ Index(['Номер отчёта', 'Дата начала отчётного периода',
+    │    │                          'Дата конца отчётного периода', 'Дата формирования отчёта',
+    │    │                     ...
+    │    └ <function Index._raise_if_missing at 0x0000025F4B2652D0>
+    └ Index([], dtype='object')
+  File "C:\Users\123\Desktop\ba_name\venv\Lib\site-packages\pandas\core\indexes\base.py", line 6352, in _raise_if_missing
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+                               │                  └ 'columns'
+                               └ Index(['Номер отчёта', 'Дата начала отчётного периода',
+                                        'Дата конца отчётного периода', 'Дата формирования отчёта',
+                                   ...
+
+KeyError: "None of [Index(['Номер отчёта', 'Дата начала отчётного периода',\n       'Дата конца отчётного периода', 'Дата формирования отчёта',\n       'Номер строки', 'Номер поставки', 'Предмет', 'Артикул WB', 'Бренд',\n       'Артикул продавца', 'Размер', 'Баркод', 'Тип документа', 'Количество',\n       'Цена розничная', 'WB реализовал товар (продажа)',\n       'Согласованный дисконт, %', 'Размер кВВ, %', 'Обоснование для оплаты',\n       'Дата заказа', 'Дата продажи', 'Штрихкод',\n       'Цена розничная с учётом скидки', 'Количество доставок',\n       'Количество возвратов', 'Услуги по доставке товара покупателю',\n       'Скидка постоянного покупателя (СПП), %',\n       'Размер кВВ без НДС, % (базовый)', 'Вознаграждение с продаж без НДС',\n       'К перечислению продавцу', 'Возмещение за выдачу и возврат на ПВЗ',\n       'Эквайринг / Комиссия за платежи', 'Комиссия за эквайринг, %',\n       'Сумма штрафов', 'Корректировка вознаграждения WB',\n       'Возмещение издержек по логистике', 'Хранение', 'Удержания',\n       'Платная приёмка', 'Номер сборочного задания',\n       'Уникальный ID заказа (srid)', 'Тип отчёта', 'Скидка Wibes, %',\n       'account'],\n      dtype='str')] are in the [columns]"
+2026-06-05 16:23:20.096 | INFO     | task=fin_rep_weekly endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | 💵 Запуск обновления данных по еженедельным финансовым отчетам
+2026-06-05 16:23:20.099 | INFO     | task=fin_rep_weekly endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Starting fin report collection tasks=2
+2026-06-05 16:23:21.233 | INFO     | task=http_request endpoint=/api/v5/supplier/reportDetailByPeriod account=Buenos Animales status=200 attempt=1 retries=0 retry_sleep=- duration_ms=1132.16 failed=- succeeded=- | HTTP request succeeded
+2026-06-05 16:23:21.234 | INFO     | task=http_request endpoint=/api/v5/supplier/reportDetailByPeriod account=Buenos Animales status=200 attempt=1 retries=0 retry_sleep=- duration_ms=1133.98 failed=- succeeded=- | HTTP request succeeded
+2026-06-05 16:23:21.783 | INFO     | task=fin_rep_weekly endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=0 succeeded=2 | Fin report collection finished. rows=808 metrics={'requests_total': 2, 'requests_failed': 0, 'retries_total': 0, 'status_429_total': 0, 'exceptions_total': 0, 'duration_total_ms': 2266.14, 'avg_duration_ms': 1133.07, 'max_duration_ms': 1133.98}
+2026-06-05 16:23:29.726 | INFO     | task=fin_rep_weekly endpoint=prepare_google_sheet account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Financial report uploaded to Google Sheets rows=808
+2026-06-05 16:23:29.821 | INFO     | task=fin_rep_weekly endpoint=- account=- status=- attempt=- retries=- retry_sleep=- duration_ms=- failed=- succeeded=- | Task finished successfully

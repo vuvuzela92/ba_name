@@ -115,6 +115,24 @@ class WildberriesClient:
                             await asyncio.sleep(sleep_for)
                             continue
 
+                        if res.status == 401 and "expired" in str(detail).lower():
+                            if self.metrics:
+                                self.metrics.observe_request(duration_ms, status_code=res.status, success=False)
+                            bind_context(
+                                task_name="http_auth",
+                                endpoint=endpoint,
+                                account=self.account,
+                                status_code=res.status,
+                                attempt=attempt + 1,
+                                duration_ms=round(duration_ms, 2),
+                                retries=attempt,
+                            ).error(
+                                "WB API token expired for account '{}'. Response: {}. Please refresh the WB API token.",
+                                self.account,
+                                detail,
+                            )
+                            return None
+
                         if self.metrics:
                             self.metrics.observe_request(duration_ms, status_code=res.status, success=False)
                         bind_context(

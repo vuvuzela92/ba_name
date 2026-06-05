@@ -5,6 +5,7 @@ from src.fin_report.finance_report_processor import FinRepProcessor
 # Для работы с гугл таблицами
 from src.core.my_gspread import GoogleTabs
 from src.core.config import google_tabs
+from src.core.logging_utils import bind_context
 # импорт внешних библиотек
 import asyncio
 import gspread
@@ -16,8 +17,15 @@ def fin_rep_weekly(count_weeks=2):
 
 async def fin_rep_weekly_async(count_weeks=2):
     """ Функция для получения обработанных результатов ежедневного финаносового отчете"""   
+    log = bind_context(task_name="fin_rep_weekly", endpoint="prepare_google_sheet")
     data = await fetch_fin_reps_weekly(count_weeks)
     df = FinRepProcessor()._process_fin_rep(data)
+    if df.empty:
+        log.warning(
+            "Financial report data is empty. Skip Google Sheets update. "
+            "Possible reasons: expired WB API token, empty API response, or upstream request failures."
+        )
+        return
     # Переименуем на русский для удобной работе в гугл-таблице
     df_rus = df.copy()
     df_rus = df_rus.rename(columns={
@@ -148,8 +156,19 @@ async def fin_rep_weekly_async(count_weeks=2):
     'Тип отчёта',
     'Скидка Wibes, %',
     'account']
+    missing_columns = [column for column in cols_order if column not in df_rus.columns]
+    if missing_columns:
+        log.error(
+            "Financial report DataFrame is missing expected columns: {}. "
+            "Skip Google Sheets update to avoid corrupt export.",
+            missing_columns,
+        )
+        return
     # Только нужные колонки
-    df_gs = df_rus[cols_order]
+    df_gs = df_rus[cols_order].copy()
+    if df_gs.empty:
+        log.warning("Financial report export DataFrame is empty after column selection. Skip Google Sheets update.")
+        return
     # Создаем соединение с гугл-таблицей
     google_table = google_tabs.get("ba_name").get("title")
     table_sheet = google_tabs.get("ba_name").get("fin_rep_weekly")
@@ -160,13 +179,14 @@ async def fin_rep_weekly_async(count_weeks=2):
         google_connect = GoogleTabs(table_title=google_table, sheet_title=table_sheet)
         # Вставляем данные в гугл-таблицу
         google_connect._send_df_to_google(df_gs, google_connect.sheet_title)
+        log.info("Financial report uploaded to Google Sheets rows={}", len(df_gs.index))
     except gspread.exceptions.SpreadsheetNotFound:
-        print(f"Не найдена таблица {google_table}")
+        log.error("Google spreadsheet not found: {}", google_table)
     except gspread.exceptions.WorksheetNotFound as e:
-        print(f"Не найден лист {table_sheet} в таблице {google_table}")
+        log.error("Google worksheet not found: {} in spreadsheet {}", table_sheet, google_table)
     except StopIteration:
-        print(f"Не найден лист {table_sheet} в таблице {google_table}")
+        log.error("Google worksheet lookup failed: {} in spreadsheet {}", table_sheet, google_table)
     except RuntimeError as e:
-        print(f"Ошибка подключения: {e}")   
+        log.error("Google Sheets connection error: {}", e)
 
 
