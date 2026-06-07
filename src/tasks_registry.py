@@ -29,6 +29,7 @@ TASKS: Dict[str, Dict[str, Any]] = {
         "original_func": get_current_prices_async,
         "desc": "💵 Запуск обновления данных по текущим ценам",
     },
+    # python main.py advert_stat --date_from 2026-06-01 --date_to 2026-06-05 Забрать данные за период
     "advert_stat": {
         "original_func": advert_stat,
         "desc": "📊 Запуск обновления данных по рекламной статистике",
